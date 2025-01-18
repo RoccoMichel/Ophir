@@ -17,8 +17,8 @@ public class BasePlayer : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
 
-    InputAction moveAction;
-    InputAction jumpAction;
+    internal InputAction moveAction;
+    internal InputAction jumpAction;
 
     void Start()
     {
