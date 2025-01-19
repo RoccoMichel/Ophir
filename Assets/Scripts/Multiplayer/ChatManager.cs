@@ -12,10 +12,10 @@ public class ChatManager : MonoBehaviour
     public float chatLifeSeconds;
 
     [Header("References")]
-    public TMP_Text recent;
-    public TMP_Text full;
-    public TMP_InputField chatInput;
-    public Component[] fullChatFeatures;
+    [SerializeField] protected TMP_Text recent;
+    [SerializeField] protected TMP_Text full;
+    [SerializeField] protected TMP_InputField chatInput;
+    [SerializeField] protected Component[] fullChatFeatures;
 
     [HideInInspector] public List<string> messages = new();
     public List<float> timers = new();
@@ -86,6 +86,7 @@ public class ChatManager : MonoBehaviour
         full.fontSize = b ? fontSize : 0;
         recent.fontSize = b ? 0 : fontSize;
 
+        chatInput.interactable = b;
         foreach (Component component in fullChatFeatures)
         {
             if (component is Behaviour behaviour) behaviour.enabled = b;
