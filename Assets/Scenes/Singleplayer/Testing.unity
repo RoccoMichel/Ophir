@@ -636,6 +636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854140736}
+  - component: {fileID: 854140738}
   - component: {fileID: 854140735}
   - component: {fileID: 854140734}
   - component: {fileID: 854140737}
@@ -713,13 +714,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854140733}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588186, y: -0, z: -0, w: 0.965926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &854140737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,6 +860,29 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &854140738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854140733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359653acd1379834b850d12406933e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 5
+  getFromPref: 0
+  prefKey: 
+  lockZAxis: 1
+  cursorConstraint: 1
+  moveConstraint: 2
+  limit: {x: 999, y: 40}
+  elasticStrength: 0.3
+  mouseInput: {x: 0, y: 0}
+  horizontal: 0
+  vertical: 0
 --- !u!1 &1159782695
 GameObject:
   m_ObjectHideFlags: 0
