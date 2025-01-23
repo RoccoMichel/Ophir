@@ -5,10 +5,11 @@ public class CameraController : MonoBehaviour
 {
     [Header("Sensitivity")]
     public float sensitivity = 5f;
-    public bool getFromPref = false;
+    public bool invertX, invertY, sensitivityFromPref = false;
     public string prefKey = "Sensitivity";
 
     [Header("Constraints")]
+    public bool alwaysUpdate = false;
     [Tooltip("Highly recommended to avoid unwanted tilts or drifts!")]
     public bool lockZAxis = true;
     public CursorLockMode cursorConstraint;
@@ -19,8 +20,9 @@ public class CameraController : MonoBehaviour
     [Range(0f, 1f)] public float elasticStrength = 0.3f;
 
     [Header("Inputs")]
-    [SerializeField] internal Vector2 mouseInput;    
+    [SerializeField] internal Vector2 mouseInput;
     [SerializeField] protected float horizontal, vertical;
+    [HideInInspector] public Vector2 rotation;
     protected InputAction lookAction;
 
     public enum MovementType
@@ -52,19 +54,22 @@ public class CameraController : MonoBehaviour
 
         // Use Methods built-in conflict detection
         SetMoveConstraint(moveConstraint, limit, true);
+        if (moveConstraint == MovementType.Elastic && !alwaysUpdate)
+            Debug.LogWarning("It's highly recommended to set alwaysUpdate to true when constraint mode is elastic!");
     }
 
     private void Update()
     {
         // Return early if player wasn't looking this frame
-        if (!lookAction.IsPressed()) return;
+        if (!lookAction.IsPressed() && !alwaysUpdate) return;
 
         // Translate mouse input to appliable rotation
         mouseInput = lookAction.ReadValue<Vector2>();
-        Vector3 mouseRotation = sensitivity * Time.deltaTime * new Vector3(-mouseInput.y, mouseInput.x, 0);
+        rotation = sensitivity * Time.deltaTime * new Vector2 (invertX ? -mouseInput.x : mouseInput.x, invertY ? mouseInput.y : -mouseInput.y);
 
         // Apply initial rotation
-        transform.rotation = Quaternion.Euler(mouseRotation + transform.rotation.eulerAngles);
+        transform.rotation = Quaternion.Euler(new Vector3(0, rotation.x, 0) + transform.rotation.eulerAngles);
+        transform.localRotation = Quaternion.Euler(new Vector3(rotation.y, 0, 0) + transform.localRotation.eulerAngles);
 
         vertical = Mathf.DeltaAngle(0, transform.rotation.eulerAngles.x);
         horizontal = Mathf.DeltaAngle(0, transform.rotation.eulerAngles.y);
@@ -85,7 +90,8 @@ public class CameraController : MonoBehaviour
         }
 
         // Apply final rotation
-        transform.rotation = Quaternion.Euler(vertical, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
+        transform.localRotation = Quaternion.Euler(vertical, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
     }
 
     // SCRIPT METHODS ---------------------------------
@@ -95,7 +101,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void RefreshSensitivity()
     {
-        if (getFromPref) sensitivity = PlayerPrefs.GetFloat(prefKey, 1);
+        if (sensitivityFromPref) sensitivity = PlayerPrefs.GetFloat(prefKey, 1);
     }
 
     /// <summary>
@@ -129,6 +135,9 @@ public class CameraController : MonoBehaviour
     /// <param name="maxLimit">Up and Down max limit in Euler angles</param>
     public void SetMoveConstraint(MovementType type, Vector2 maxLimit)
     {
+        if (limit.y > 90) Debug.LogWarning("Y Limit can not be beyond 90");
+
+        limit = new Vector2(limit.x, Mathf.Clamp(limit.y, 0, 90));
         moveConstraint = type;
         limit = maxLimit;
 
@@ -159,6 +168,9 @@ public class CameraController : MonoBehaviour
     /// <param name="b">Overwrite startOrientation : Vector3</param>
     public void SetMoveConstraint(MovementType type, Vector2 maxLimit, bool b)
     {
+        if (limit.y > 90) Debug.LogWarning("Y Limit can not be beyond 90");
+
+        limit = new Vector2(limit.x, Mathf.Clamp(limit.y, 0, 90));
         moveConstraint = type;
         limit = maxLimit;
 

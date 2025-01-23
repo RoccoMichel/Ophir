@@ -29,7 +29,7 @@ public class ChatManager : MonoBehaviour
         cancelAction = InputSystem.actions.FindAction("Cancel");
 
         inChat = false;
-        ToggleActiveChat(false);
+        TogglChatText(false);
     }
 
     private void Update()
@@ -47,12 +47,7 @@ public class ChatManager : MonoBehaviour
 
         // Toggle which type of Chat is displayed
         if (enterChatAction.WasPressedThisFrame() || (inChat && cancelAction.WasPressedThisFrame()))
-        {
-            inChat = !inChat;
-            ToggleActiveChat(inChat);
-
-            if (inChat) chatInput.ActivateInputField();
-        }
+            ToggleChat();
     }
 
     [PunRPC]
@@ -77,11 +72,19 @@ public class ChatManager : MonoBehaviour
         }
     }
 
+    public void ToggleChat()
+    {
+        inChat = !inChat;
+        TogglChatText(inChat);
+
+        if (inChat) chatInput.ActivateInputField();
+    }
+
     /// <summary>
     /// Change which Chat is displayed to the Player by a boolean
     /// </summary>
     /// <param name="b">True indicates being in the full chat and False being in recent mode</param>
-    public virtual void ToggleActiveChat(bool b)
+    public virtual void TogglChatText(bool b)
     {
         full.fontSize = b ? fontSize : 0;
         recent.fontSize = b ? 0 : fontSize;

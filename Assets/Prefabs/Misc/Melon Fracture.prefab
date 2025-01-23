@@ -1,0 +1,699 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &9015342982743528735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      propertyPath: m_Name
+      value: Melon Fracture
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -3821891540669150015, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 209752818621266493}
+    - targetCorrespondingSourceObject: {fileID: -3821891540669150015, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2231314287330613762}
+    - targetCorrespondingSourceObject: {fileID: -3821891540669150015, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9021418602109896354}
+    - targetCorrespondingSourceObject: {fileID: 6557960884910345346, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7676543092482290608}
+    - targetCorrespondingSourceObject: {fileID: 6557960884910345346, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4820462815938986123}
+    - targetCorrespondingSourceObject: {fileID: 6557960884910345346, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 817845103525710881}
+    - targetCorrespondingSourceObject: {fileID: 6376449701726259289, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6398932023548956115}
+    - targetCorrespondingSourceObject: {fileID: 6376449701726259289, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5724540157946208113}
+    - targetCorrespondingSourceObject: {fileID: 6376449701726259289, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3186416671705584149}
+    - targetCorrespondingSourceObject: {fileID: -1420196573705343409, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3844577605394819070}
+    - targetCorrespondingSourceObject: {fileID: -1420196573705343409, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1528794409705476363}
+    - targetCorrespondingSourceObject: {fileID: -1420196573705343409, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960444575316900867}
+    - targetCorrespondingSourceObject: {fileID: 7296907999051082670, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7671705195061824523}
+    - targetCorrespondingSourceObject: {fileID: 7296907999051082670, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6095270651934974569}
+    - targetCorrespondingSourceObject: {fileID: 7296907999051082670, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8227134868588486728}
+    - targetCorrespondingSourceObject: {fileID: -3894790563273680320, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8173868574277752293}
+    - targetCorrespondingSourceObject: {fileID: -3894790563273680320, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2443221938059974588}
+    - targetCorrespondingSourceObject: {fileID: -3894790563273680320, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7473026522449925609}
+    - targetCorrespondingSourceObject: {fileID: 432032185809867089, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5136015086665418683}
+    - targetCorrespondingSourceObject: {fileID: 432032185809867089, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8160441941210951878}
+    - targetCorrespondingSourceObject: {fileID: 432032185809867089, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6768959841557494150}
+    - targetCorrespondingSourceObject: {fileID: 1128433411934642431, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8021735554068731237}
+    - targetCorrespondingSourceObject: {fileID: 1128433411934642431, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6513036657380359767}
+    - targetCorrespondingSourceObject: {fileID: 1128433411934642431, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7783852029735171254}
+  m_SourcePrefab: {fileID: 100100000, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!1 &1249357542659586896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1420196573705343409, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3844577605394819070
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249357542659586896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8136128327864165160, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &1528794409705476363
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249357542659586896}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &960444575316900867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249357542659586896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &1756190031683813041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7296907999051082670, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7671705195061824523
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756190031683813041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3062790265931535012, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &6095270651934974569
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756190031683813041}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8227134868588486728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756190031683813041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &2693536947367255366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6376449701726259289, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6398932023548956115
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693536947367255366}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5929525742661888972, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &5724540157946208113
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693536947367255366}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3186416671705584149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693536947367255366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &2746738378228750749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6557960884910345346, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7676543092482290608
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746738378228750749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1867579087414035123, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &4820462815938986123
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746738378228750749}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &817845103525710881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2746738378228750749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &3813988353288327007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3894790563273680320, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8173868574277752293
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813988353288327007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3143292006947129724, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &2443221938059974588
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813988353288327007}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7473026522449925609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813988353288327007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &4028759355848743390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3821891540669150015, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &209752818621266493
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028759355848743390}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 57158112015519593, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &2231314287330613762
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028759355848743390}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &9021418602109896354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028759355848743390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &8265775031766152672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128433411934642431, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8021735554068731237
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265775031766152672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4221042627551628596, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &6513036657380359767
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265775031766152672}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7783852029735171254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265775031766152672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}
+--- !u!1 &8710538195076809806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 432032185809867089, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+  m_PrefabInstance: {fileID: 9015342982743528735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5136015086665418683
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710538195076809806}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8819598455540863952, guid: b852652910d98a54aaa052adbc09284e, type: 3}
+--- !u!54 &8160441941210951878
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710538195076809806}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6768959841557494150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710538195076809806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb8fdbc80d1ab4aae0692d8eadc0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: Melon Facture
+  health: 1
+  isImmortal: 0
+  InstantiateOnDeath:
+  - {fileID: 6332189797881897235, guid: d8b87486783ce5e468231c5dae25c696, type: 3}

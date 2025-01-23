@@ -10,6 +10,13 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
-        PhotonNetwork.Instantiate("Player", transform.position, Quaternion.identity);
+        PhotonNetwork.Instantiate("MP_Player", transform.position, Quaternion.identity);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 1);
     }
 }
