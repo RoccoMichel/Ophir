@@ -341,7 +341,7 @@ MonoBehaviour:
     m_Bits: 8
   controller: {fileID: 5193403715104534930}
   groundCheck: {fileID: 4743784927707355891}
-  camera: {fileID: 7959665687078032127}
+  playerCamera: {fileID: 7959665687078032127}
 --- !u!143 &5193403715104534930
 CharacterController:
   m_ObjectHideFlags: 0

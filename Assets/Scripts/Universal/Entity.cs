@@ -7,11 +7,6 @@ public class Entity : MonoBehaviour
     public float health = 100f;
     public bool isImmortal = false;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F)) TakeDamage(1);
-    }
-
     public virtual void TakeDamage(float damage)
     {
         if (isImmortal) return;

@@ -19,7 +19,7 @@ public class FirstPersonController : MonoBehaviour
     [Header("References")]
     public CharacterController controller;
     public Transform groundCheck;
-    public GameObject camera;
+    public GameObject playerCamera;
 
     internal InputAction moveAction;
     internal InputAction jumpAction;
@@ -57,7 +57,7 @@ public class FirstPersonController : MonoBehaviour
         // Camera
         Vector2 lookValue = sensitivity * Time.deltaTime * lookAction.ReadValue<Vector2>();
 
-        camera.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-lookValue.y, -90f, 90f), 0f, 0f) + camera.transform.localRotation.eulerAngles);
+        GetComponent<Camera>().transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-lookValue.y, -90f, 90f), 0f, 0f) + GetComponent<Camera>().transform.localRotation.eulerAngles);
         transform.Rotate(Vector3.up * lookValue.x);
 
     }
