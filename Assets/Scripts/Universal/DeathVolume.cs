@@ -33,39 +33,61 @@ public class DeathVolume : MonoBehaviour
         }
     }
 
+    // ------------------------------------
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Entity>() == null) return;
-
-        if (!effectAll)
-        {
-            foreach(string tag in tags)
-            {
-                if (other.CompareTag(tag)) break;
-
-                if (tag == tags[tags.Length - 1]) return;
-            }
-        }
-
-        if (instantDeath) other.gameObject.GetComponent<Entity>().Die();
-        else other.gameObject.GetComponent<Entity>().TakeDamage(damage);
+        TriggerDamage(other);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        TriggerDamage(other);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Entity>() == null) return;
+        CollisionDamage(collision);
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        CollisionDamage(collision);
+    }
+
+    // ------------------------------------
+
+    void CollisionDamage(Collision c)
+    {
+        if (c.gameObject.GetComponent<Entity>() == null) return;
 
         if (!effectAll)
         {
             foreach (string tag in tags)
             {
-                if (collision.gameObject.CompareTag(tag)) break;
+                if (c.gameObject.CompareTag(tag)) break;
 
                 if (tag == tags[tags.Length - 1]) return;
             }
         }
 
-        if (instantDeath) collision.gameObject.GetComponent<Entity>().Die();
-        else collision.gameObject.GetComponent<Entity>().TakeDamage(damage);
+        if (instantDeath) c.gameObject.GetComponent<Entity>().Die();
+        else c.gameObject.GetComponent<Entity>().TakeDamage(damage * Time.deltaTime);
+    }
+
+    void TriggerDamage(Collider c)
+    {
+        if (c.gameObject.GetComponent<Entity>() == null) return;
+
+        if (!effectAll)
+        {
+            foreach (string tag in tags)
+            {
+                if (c.CompareTag(tag)) break;
+
+                if (tag == tags[tags.Length - 1]) return;
+            }
+        }
+
+        if (instantDeath) c.gameObject.GetComponent<Entity>().Die();
+        else c.gameObject.GetComponent<Entity>().TakeDamage(damage * Time.deltaTime);
     }
 }

@@ -57,8 +57,7 @@ public class FirstPersonController : MonoBehaviour
         // Camera
         Vector2 lookValue = sensitivity * Time.deltaTime * lookAction.ReadValue<Vector2>();
 
-        GetComponent<Camera>().transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-lookValue.y, -90f, 90f), 0f, 0f) + GetComponent<Camera>().transform.localRotation.eulerAngles);
+        playerCamera.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-lookValue.y, -90f, 90f), 0f, 0f) + playerCamera.transform.localRotation.eulerAngles);
         transform.Rotate(Vector3.up * lookValue.x);
-
     }
 }

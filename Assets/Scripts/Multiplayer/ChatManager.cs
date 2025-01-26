@@ -53,7 +53,7 @@ public class ChatManager : MonoBehaviour
     [PunRPC]
     public virtual void ShowMessage(string username, string message)
     {
-        if (string.IsNullOrEmpty(username)) username = "ANONYMOUS";
+        if (string.IsNullOrWhiteSpace(username)) username = "ANONYMOUS";
 
         messages.Add($"[{username}] {message}");
         timers.Add(chatLifeSeconds);

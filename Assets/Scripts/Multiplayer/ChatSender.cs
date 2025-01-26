@@ -10,7 +10,7 @@ public class ChatSender : MonoBehaviour
     public void SendMessage()
     {
         // Don't send an empty message
-        if (string.IsNullOrEmpty(message.text)) return;
+        if (string.IsNullOrWhiteSpace(message.text)) return;
 
         if (chatManager.enterChatAction.WasPressedThisFrame())
         {
