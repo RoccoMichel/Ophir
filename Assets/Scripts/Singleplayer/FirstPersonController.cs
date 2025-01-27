@@ -1,37 +1,32 @@
+using Photon.Realtime;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class FirstPersonController : MonoBehaviour
 {
-    [Header("TEMP")]
-    public float sensitivity = 5;
-
-    [Header("Properties")]
+    [Header("Movement")]
     public float moveSpeed;
     public float jumpStrength;
     public float gravity;
     public bool grounded;
     public float groundDistance;
     public LayerMask groundMask;
-
     Vector3 velocity;
 
     [Header("References")]
     public CharacterController controller;
     public Transform groundCheck;
-    public GameObject playerCamera;
 
     internal InputAction moveAction;
     internal InputAction jumpAction;
-    internal InputAction lookAction;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
-        lookAction = InputSystem.actions.FindAction("Look");
     }
 
     void Update()
@@ -53,11 +48,5 @@ public class FirstPersonController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
         controller.Move(moveSpeed * Time.deltaTime * move);
-
-        // Camera
-        Vector2 lookValue = sensitivity * Time.deltaTime * lookAction.ReadValue<Vector2>();
-
-        playerCamera.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-lookValue.y, -90f, 90f), 0f, 0f) + playerCamera.transform.localRotation.eulerAngles);
-        transform.Rotate(Vector3.up * lookValue.x);
     }
 }

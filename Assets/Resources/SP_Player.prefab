@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7242661280983663069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6904451888795032134}
   - component: {fileID: 1434468603320881525}
   - component: {fileID: 7292760539919324376}
+  - component: {fileID: 1662167816138253964}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -96,9 +97,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -263,6 +264,27 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1662167816138253964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7959665687078032127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfdc231697b3e94d87af719f38cadf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5794992204043843958}
+  sensitivity: 5
+  invertX: 0
+  invertY: 0
+  sensitivityFromPref: 0
+  prefKey: Sensitivity
+  rotation: {x: 0, y: 0}
+  mouseInput: {x: 0, y: 0}
+  horizontal: 0
 --- !u!1 &7976169419211791463
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +339,7 @@ MonoBehaviour:
   identity: Player
   health: 100
   isImmortal: 0
+  substance: 1
 --- !u!114 &7314493186882724419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0532cd5ea84544b9154818aab0609b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 10
   moveSpeed: 7
   jumpStrength: 2
   gravity: -20
@@ -340,7 +362,6 @@ MonoBehaviour:
     m_Bits: 8
   controller: {fileID: 5193403715104534930}
   groundCheck: {fileID: 4743784927707355891}
-  playerCamera: {fileID: 7959665687078032127}
 --- !u!143 &5193403715104534930
 CharacterController:
   m_ObjectHideFlags: 0

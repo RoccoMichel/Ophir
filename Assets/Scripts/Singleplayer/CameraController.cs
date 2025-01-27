@@ -51,6 +51,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         // Set values to beyond assembly variables
+        RefreshSensitivity();
         lookAction = InputSystem.actions.FindAction("Look");
         startOrientation = transform.rotation.eulerAngles;
 
@@ -108,7 +109,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void RefreshSensitivity()
     {
-        if (sensitivityFromPref) sensitivity = PlayerPrefs.GetFloat(prefKey, 1);
+        if (sensitivityFromPref) sensitivity = PlayerPrefs.GetFloat(prefKey, sensitivity);
     }
 
     /// <summary>
