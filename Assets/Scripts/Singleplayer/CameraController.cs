@@ -33,6 +33,11 @@ public class CameraController : MonoBehaviour
         Unrestricted,
 
         /// <summary>
+        /// Restricted movement. The camera can move anywhere but not overturn itself (barrel roll)
+        /// </summary>
+        Restricted,
+
+        /// <summary>
         /// Elastic movement. The camera is allowed to temporarily move beyond the limiting Vector, but is pulled back elastically.
         /// </summary>
         Elastic,
@@ -60,27 +65,30 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // Return early if player wasn't looking this frame
         if (!lookAction.IsPressed() && !alwaysUpdate) return;
 
-        // Translate mouse input to appliable rotation
+        // Read input
         mouseInput = lookAction.ReadValue<Vector2>();
-        rotation = sensitivity * Time.deltaTime * new Vector2 (invertX ? -mouseInput.x : mouseInput.x, invertY ? mouseInput.y : -mouseInput.y);
+        rotation = sensitivity * Time.deltaTime * new Vector2(
+            invertX ? -mouseInput.x : mouseInput.x,
+            !invertY ? mouseInput.y : -mouseInput.y
+        );
 
-        // Apply initial rotation
-        transform.rotation = Quaternion.Euler(new Vector3(0, rotation.x, 0) + transform.rotation.eulerAngles);
-        transform.localRotation = Quaternion.Euler(new Vector3(rotation.y, 0, 0) + transform.localRotation.eulerAngles);
+        // Update horizontal and vertical
+        horizontal += rotation.x;
+        vertical -= rotation.y;
 
-        vertical = Mathf.DeltaAngle(0, transform.rotation.eulerAngles.x);
-        horizontal = Mathf.DeltaAngle(0, transform.rotation.eulerAngles.y);
-
-        // Apply Constraint based on type
-        if (moveConstraint == MovementType.Clamped) // Snap the rotation within the limit
+        // Apply constraints
+        if (moveConstraint == MovementType.Restricted)
+        {
+            vertical = Mathf.Clamp(vertical, -90f, 90f);
+        }
+        else if (moveConstraint == MovementType.Clamped)
         {
             vertical = Mathf.Clamp(vertical, activeLimit.z, activeLimit.w);
             horizontal = Mathf.Clamp(horizontal, activeLimit.x, activeLimit.y);
         }
-        else if (moveConstraint == MovementType.Elastic) // Smoothly return the rotation within the limit
+        else if (moveConstraint == MovementType.Elastic)
         {
             if (vertical > activeLimit.w) vertical = Mathf.Lerp(vertical, activeLimit.w, elasticStrength);
             else if (vertical < activeLimit.z) vertical = Mathf.Lerp(vertical, activeLimit.z, elasticStrength);
@@ -89,9 +97,8 @@ public class CameraController : MonoBehaviour
             else if (horizontal < activeLimit.x) horizontal = Mathf.Lerp(horizontal, activeLimit.x, elasticStrength);
         }
 
-        // Apply final rotation
-        transform.localRotation = Quaternion.Euler(vertical, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
+        // Apply rotation using Quaternion to avoid gimbal lock
+        transform.rotation = Quaternion.Euler(vertical, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
     }
 
     // SCRIPT METHODS ---------------------------------
@@ -185,7 +192,7 @@ public class CameraController : MonoBehaviour
         // Warn about variable conflict
         if (limit != Vector2.zero && moveConstraint == MovementType.Unrestricted)
         {
-            Debug.LogWarning("Limit will not be applied due to chosen containment Type");
+            Debug.LogWarning("Limit will not be applied due to chosen constraint Type");
         }
 
         if (limit.x < 0 || limit.y < 0)

@@ -22,8 +22,6 @@ public class SpreadGun : RangedWeapon
     {
         base.Shoot();
 
-        if (timeSinceLastShot < 60 / rmp || activeAmmo <= 0) return;
-
         for (int i = 0; i < pelletCount; i++)
         {
             Vector3 spreadDirection = barrel.forward + new Vector3(Random.Range(-spreadVariation, spreadVariation), 0, Random.Range(-spreadVariation, spreadVariation));

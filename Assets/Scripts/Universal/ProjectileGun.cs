@@ -12,8 +12,6 @@ public class ProjectileGun : RangedWeapon
     public override void Shoot()
     {
         base.Shoot();
-
-        if (timeSinceLastShot < 60 / rmp || activeAmmo <= 0) return;
         
         Instantiate(projectile, barrel.position, barrel.rotation).TryGetComponent(out Rigidbody rigidbody);
         if (rigidbody != null) rigidbody.AddForce(barrel.forward * force, ForceMode.Impulse);

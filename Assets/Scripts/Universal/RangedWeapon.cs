@@ -80,23 +80,25 @@ public class RangedWeapon : Weapon
 
         if (reloadAction.WasPressedThisFrame()) Reload();
 
-        if (automatic && attackAction.IsPressed())
+        if (automatic && attackAction.IsPressed() && timeSinceLastShot > 60 / rmp) // Automatic Firing
         {
-            Shoot();
+            if (activeAmmo > 0) Shoot();
+            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) Reload();
         }
-        else if (!automatic && attackAction.WasPressedThisFrame())
+
+        else if (!automatic && attackAction.WasPressedThisFrame() && timeSinceLastShot > 60 / rmp) // Semi-Auto Firing
         {
-            Shoot();
+            if (activeAmmo > 0) Shoot();
+            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) Reload();
         }
     }
 
     public virtual void Shoot()
     {
-
+        timeSinceLastShot = 0f;
 
         activeAmmo--;
-
-        timeSinceLastShot = 0f;
+        if (activeAmmo <= 0 && reload == ReloadType.Automatic) Reload();
     }
 
     public virtual void Reload()

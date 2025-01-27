@@ -11,8 +11,6 @@ public class RaycastGun : RangedWeapon
     {
         base.Shoot();
 
-        if (timeSinceLastShot < 60 / rmp || activeAmmo <= 0) return;
-
         if (Physics.Raycast(barrel.position, barrel.TransformDirection(Vector3.forward), out RaycastHit hit, distance, layerMask))
         {
             if (debug)
