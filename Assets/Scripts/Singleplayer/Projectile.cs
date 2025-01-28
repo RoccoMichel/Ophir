@@ -35,4 +35,15 @@ public class Projectile : Entity
     {
         if (dieOnImpact) Die();
     }
+
+    public virtual void Impact(Collision collision)
+    {
+        if (collision.transform.GetComponent<Entity>() != null)
+            collision.transform.GetComponent<Entity>().TakeDamage(damage);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Impact(collision);
+    }
 }

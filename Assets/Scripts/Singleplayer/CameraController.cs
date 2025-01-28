@@ -1,8 +1,10 @@
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] GameObject target;
     [Header("Sensitivity")]
     public float sensitivity = 5f;
     public bool invertX, invertY, sensitivityFromPref = false;
@@ -23,6 +25,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] internal Vector2 mouseInput;
     [SerializeField] protected float horizontal, vertical;
     [HideInInspector] public Vector2 rotation;
+    private float xRotation = 0f;
     protected InputAction lookAction;
 
     public enum MovementType
@@ -46,14 +49,19 @@ public class CameraController : MonoBehaviour
         /// Clamped movement. The camera can not be moved beyond its limiting Vector.
         /// </summary>
         Clamped,
+
+        /// <summary>
+        /// Mode for an FPS game, MAKE SURE TO ASSAIGN TARGET TO PARENT BODY!
+        /// </summary>
+        FirstPerson,
     }
 
     private void Start()
     {
         // Set values to beyond assembly variables
         RefreshSensitivity();
+        if (target == null) target = gameObject;
         lookAction = InputSystem.actions.FindAction("Look");
-        startOrientation = transform.rotation.eulerAngles;
 
         // Apply values to scene
         Cursor.lockState = cursorConstraint;
@@ -84,11 +92,6 @@ public class CameraController : MonoBehaviour
         {
             vertical = Mathf.Clamp(vertical, -90f, 90f);
         }
-        else if (moveConstraint == MovementType.Clamped)
-        {
-            vertical = Mathf.Clamp(vertical, activeLimit.z, activeLimit.w);
-            horizontal = Mathf.Clamp(horizontal, activeLimit.x, activeLimit.y);
-        }
         else if (moveConstraint == MovementType.Elastic)
         {
             if (vertical > activeLimit.w) vertical = Mathf.Lerp(vertical, activeLimit.w, elasticStrength);
@@ -97,9 +100,23 @@ public class CameraController : MonoBehaviour
             if (horizontal > activeLimit.y) horizontal = Mathf.Lerp(horizontal, activeLimit.y, elasticStrength);
             else if (horizontal < activeLimit.x) horizontal = Mathf.Lerp(horizontal, activeLimit.x, elasticStrength);
         }
+        else if (moveConstraint == MovementType.Clamped)
+        {
+            vertical = Mathf.Clamp(vertical, activeLimit.z, activeLimit.w);
+            horizontal = Mathf.Clamp(horizontal, activeLimit.x, activeLimit.y);
+        }
+        else if (moveConstraint == MovementType.FirstPerson)
+        {
+            xRotation -= rotation.y;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            target.transform.Rotate(Vector3.up * rotation.x);
+
+            return;
+        }
 
         // Apply rotation using Quaternion to avoid gimbal lock
-        transform.rotation = Quaternion.Euler(vertical, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
+        target.transform.rotation = Quaternion.Euler(vertical, horizontal, lockZAxis ? 0 : transform.rotation.eulerAngles.z);
     }
 
     // SCRIPT METHODS ---------------------------------
@@ -183,7 +200,7 @@ public class CameraController : MonoBehaviour
         limit = maxLimit;
 
         // Calculate Boundaries
-        if (b) startOrientation = transform.rotation.eulerAngles;
+        if (b) startOrientation = target.transform.rotation.eulerAngles;
 
         if (moveConstraint != MovementType.Unrestricted)
         {

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6904451888795032134}
   - component: {fileID: 1434468603320881525}
   - component: {fileID: 7292760539919324376}
-  - component: {fileID: 5660397927037902530}
+  - component: {fileID: 8520838587337530304}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -264,7 +264,7 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &5660397927037902530
+--- !u!114 &8520838587337530304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,18 +273,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 7959665687078032127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dfdc231697b3e94d87af719f38cadf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 359653acd1379834b850d12406933e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5794992204043843958}
+  target: {fileID: 7976169419211791463}
   sensitivity: 5
   invertX: 0
   invertY: 0
   sensitivityFromPref: 0
   prefKey: Sensitivity
-  rotation: {x: 0, y: 0}
+  alwaysUpdate: 0
+  lockZAxis: 1
+  cursorConstraint: 1
+  moveConstraint: 4
+  limit: {x: 0, y: 0}
+  elasticStrength: 0.3
   mouseInput: {x: 0, y: 0}
   horizontal: 0
+  vertical: 0
+  rotation: {x: 0, y: 0}
 --- !u!1 &7976169419211791463
 GameObject:
   m_ObjectHideFlags: 0
