@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -40,6 +39,8 @@ public class Entity : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider victim in colliders)
         {
+            if (victim.transform.gameObject == gameObject) continue;
+
             Entity entity = victim.GetComponent<Entity>();
             Rigidbody rigidbody = victim.GetComponent<Rigidbody>();
 
@@ -49,8 +50,6 @@ public class Entity : MonoBehaviour
             if (rigidbody != null)
                 rigidbody.AddExplosionForce(force, transform.position, radius);
         }
-
-        Die();
     }
 
     public virtual void TakeDamage(float damage)

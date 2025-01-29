@@ -28,6 +28,7 @@ public class Rocket : Projectile
 
         if (homing)
         {
+            // IMPROVE THIS
             transform.LookAt(target);
         }
     }
