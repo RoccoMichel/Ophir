@@ -17,6 +17,8 @@ public class SpreadGun : RangedWeapon
     public float spreadVariation = 5f;
     [Tooltip("Leave empty to use raycasts instead")]
     public GameObject pellet;
+    public LayerMask layerMask;
+
 
     public override void Shoot()
     {
@@ -28,7 +30,14 @@ public class SpreadGun : RangedWeapon
 
             if (pellet != null)
             {
-                // shot pellet with force
+                if (Physics.Raycast(barrel.position, barrel.TransformDirection(spreadDirection), out RaycastHit hit, distance, layerMask))
+                {
+                    if (debug)
+                        Debug.DrawRay(barrel.position, barrel.TransformDirection(spreadDirection) * hit.distance, Color.yellow, 0.2f);
+
+                    if (hit.transform.gameObject.GetComponent<Entity>() != null)
+                        DoDamage(hit.transform.gameObject.GetComponent<Entity>());
+                }
             }
             else
             {

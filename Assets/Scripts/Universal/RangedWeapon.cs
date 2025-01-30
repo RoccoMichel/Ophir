@@ -49,6 +49,8 @@ public class RangedWeapon : Weapon
 
     protected InputAction reloadAction;
 
+    // variables for spread, kickback & charge to fire
+
     public enum ReloadType
     {
         /// <summary>
