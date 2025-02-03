@@ -1,9 +1,5 @@
-using Photon.Realtime;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class FirstPersonController : MonoBehaviour
 {

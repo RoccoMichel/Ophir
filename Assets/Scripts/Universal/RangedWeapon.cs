@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Weapons that shoot something
@@ -47,6 +48,8 @@ public class RangedWeapon : Weapon
     public ReloadType reload;
     public Transform barrel;
 
+    // References
+    public Image crosshair;
     protected InputAction reloadAction;
 
     // variables for spread, kickback & charge to fire
