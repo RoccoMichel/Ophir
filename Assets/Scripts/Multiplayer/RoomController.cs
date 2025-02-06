@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] int buildIndex;
+    [SerializeField] string sceneName;
     public override void OnEnable()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -19,7 +19,7 @@ public class RoomController : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel(buildIndex);
+            PhotonNetwork.LoadLevel(sceneName);
         }
     }
 }

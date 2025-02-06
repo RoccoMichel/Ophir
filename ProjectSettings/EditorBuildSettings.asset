@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menus/MainMenu.unity
+    path: Assets/Scenes/Menus/MP_Menu.unity
     guid: 53b6a2d144312c94f97a9219516fc580
+  - enabled: 1
+    path: Assets/Scenes/Menus/SL_Menu.unity
+    guid: 72fb8c3a3caeb7944a602d979e02875a
   - enabled: 1
     path: Assets/Scenes/Multiplayer/Example.unity
     guid: 73b2c09692fe02c4a87904544cf8c96a
   - enabled: 1
     path: Assets/Scenes/Singleplayer/Testing.unity
     guid: 73e383aae17390c45957abbb118eeae2
+  - enabled: 1
+    path: Assets/Scenes/Singleplayer/C0/C0_0.unity
+    guid: 39b4c1067f3d6024699e4c3a83625860
   - enabled: 1
     path: Assets/Scenes/Multiplayer/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1

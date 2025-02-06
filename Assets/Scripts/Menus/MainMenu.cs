@@ -2,29 +2,23 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject[] singleplayerElements;
-    [SerializeField] GameObject[] multiplayerElements;
-    [SerializeField] GameObject[] OptionElements;
+    [SerializeField] GameObject featureObject;
+    [SerializeField] GameObject optionsObject;
 
     private void Start()
     {
         ToggleAllElements(false);
     }
 
-    public void SingleplayerMenu()
+    public void FeatureMenu()
     {
-        ToggleAllElements(false);
-        foreach (GameObject element in singleplayerElements) element.SetActive(true);
-    }
-    public void MultiplayerMenu()
-    {
-        ToggleAllElements(false);
-        foreach (GameObject element in multiplayerElements) element.SetActive(true);
+        optionsObject.SetActive(false);
+        featureObject.SetActive(!featureObject.activeSelf);
     }
     public void OptionsMenu()
     {
-        ToggleAllElements(false);
-        foreach (GameObject element in OptionElements) element.SetActive(true);
+        featureObject.SetActive(false);
+        optionsObject.SetActive(!optionsObject.activeSelf);
     }
     public void QuitApplication()
     {
@@ -33,8 +27,7 @@ public class MainMenu : MonoBehaviour
 
     void ToggleAllElements(bool b)
     {
-        foreach (GameObject element in singleplayerElements) element.SetActive(b);
-        foreach (GameObject element in multiplayerElements) element.SetActive(b);
-        foreach (GameObject element in OptionElements) element.SetActive(b);
+        featureObject.SetActive(b);
+        optionsObject.SetActive(b);
     }
 }
