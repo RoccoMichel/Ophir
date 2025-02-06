@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Entity;
 
 public class Entity : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class Entity : MonoBehaviour
 
     public virtual void Explode(float damage, float force, float radius)
     {
+        //Instantiate(Resources.Load<GameObject>("Substances/Effects/Explosion.prefab"), transform.position, Quaternion.identity);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider victim in colliders)
         {

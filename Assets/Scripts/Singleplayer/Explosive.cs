@@ -30,7 +30,18 @@ public class Explosive : Entity
 
     public virtual void OnUpdate()
     {
-        
+        if (burning) Burn();
+
+        if (burnable && !burning && health <= burnAt)
+        {
+            // Start burning
+            burning = true;
+        }
+    }
+
+    public virtual void Burn()
+    {
+        health -= Time.deltaTime;
     }
 
     public override void Explode(float damage, float force, float radius)

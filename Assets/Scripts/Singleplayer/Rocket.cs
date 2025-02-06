@@ -30,16 +30,10 @@ public class Rocket : Projectile
 
         if (homing)
         {
-            Vector3 oldRotation = transform.rotation.eulerAngles;
-            transform.LookAt(target);
+            Vector3 direction = (target.position - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            turnSpeed = Mathf.Clamp01(turnSpeed);
-            transform.rotation = Quaternion.Euler(new Vector3
-            {
-                x = Mathf.Lerp(oldRotation.x, transform.rotation.eulerAngles.x, turnSpeed),
-                y = Mathf.Lerp(oldRotation.y, transform.rotation.eulerAngles.y, turnSpeed),
-                z = Mathf.Lerp(oldRotation.z, transform.rotation.eulerAngles.z, turnSpeed)
-            });
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
     }
 

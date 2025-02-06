@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.ProBuilder;
 
 public class SpreadGun : RangedWeapon
 {
@@ -12,10 +11,6 @@ public class SpreadGun : RangedWeapon
     /// Spread angle in degrees
     /// </summary>
     public float spreadAngle = 15f;
-    /// <summary>
-    /// Random variation in spread
-    /// </summary>
-    public float spreadVariation = 5f;
     [Tooltip("Leave empty to use raycasts instead")]
     public GameObject pellet;
     public LayerMask layerMask;
@@ -27,13 +22,15 @@ public class SpreadGun : RangedWeapon
 
         for (int i = 0; i < pelletCount; i++)
         {
-            Vector3 spreadDirection = barrel.forward + new Vector3(Random.Range(-spreadVariation, spreadVariation), 0, Random.Range(-spreadVariation, spreadVariation));
+            Vector3 spreadDirection = barrel.transform.forward + new Vector3(Random.Range(-spreadAngle, spreadAngle), Random.Range(-spreadAngle, spreadAngle), 0);
+
+            Debug.Log(spreadDirection);
 
             if (pellet != null)
             {
                 // Shot physical pellet
                 Instantiate(pellet, barrel.position, barrel.rotation).TryGetComponent(out Rigidbody rigidbody);
-                if (rigidbody != null) rigidbody.AddForce(barrel.forward * distance, ForceMode.Impulse);
+                if (rigidbody != null) rigidbody.AddForce(spreadDirection * distance, ForceMode.Impulse);
             }
             else
             {
