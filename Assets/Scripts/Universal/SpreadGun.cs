@@ -30,6 +30,10 @@ public class SpreadGun : RangedWeapon
 
             if (pellet != null)
             {
+                // Raycast time
+            }
+            else
+            {
                 if (Physics.Raycast(barrel.position, barrel.TransformDirection(spreadDirection), out RaycastHit hit, distance, layerMask))
                 {
                     if (debug)
@@ -38,10 +42,7 @@ public class SpreadGun : RangedWeapon
                     if (hit.transform.gameObject.GetComponent<Entity>() != null)
                         DoDamage(hit.transform.gameObject.GetComponent<Entity>());
                 }
-            }
-            else
-            {
-                // Raycast time!
+
             }
         }
     }

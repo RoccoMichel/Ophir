@@ -10,11 +10,29 @@ public class BasePlayer : Entity
 
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage);
+        if (isImmortal) return;
 
-        // Armor logic
+        // Calculate damage with Player Armor
+        float healthDamage = damage;
+        float armorDamage = 0;
+        for (int i = 0; i < Mathf.FloorToInt(damage); i++)
+        {
+            if (armorDamage >= armor) break;
+            // Damage if Player has Armor for that Health Point
+
+            // Armor absorbs half the damage to seduce base health damage by 1/3
+            armorDamage += 0.5f;
+            healthDamage -= 0.666f;
+        }
+
+        // Apply Damage
+        health -= Mathf.Floor(healthDamage);
+        armor -= Mathf.Floor(armorDamage);
 
         // Sound and Visual Indication
+
+        // Death
+        if (health <= 0) Die();
     }
 
     public virtual void AddArmor(int amount)

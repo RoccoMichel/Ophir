@@ -28,6 +28,10 @@ public class Inventory : MonoBehaviour
         if (canCycle && cycleAction.WasPressedThisFrame())
         {
             cycleIndex += (int)cycleAction.ReadValue<float>();
+
+            if (cycleIndex < 0) cycleIndex = weapons.Count - 1;
+            if (cycleIndex > weapons.Count - 1) cycleIndex = 0;
+
             cycling = true;
             timer = cycleTime;
         }
@@ -53,7 +57,7 @@ public class Inventory : MonoBehaviour
 
     public void SwitchWeapon(int index)
     {
-        activeIndex = cycleIndex;
+        activeIndex = index;
         timer = 0;
     }
 
