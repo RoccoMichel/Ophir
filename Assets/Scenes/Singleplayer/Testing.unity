@@ -17732,7 +17732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d025b615dd8c345a2fc877bdf1d5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectorSlideSpeed: 0.198
+  selectorSlideSpeed: 0.3
   weaponSelector: {fileID: 1106520878}
   inventory: {fileID: 2015358848}
   playerReference: {fileID: 3511013240067875222}

@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 498409545}
         m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: JoinGame
+        m_MethodName: RandomGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1254,7 +1254,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 498409545}
         m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: JoinGame
+        m_MethodName: CreateGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2662,7 +2662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter 6 digit code
+  m_text: Enter 5 digit code
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

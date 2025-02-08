@@ -3,20 +3,16 @@ using Photon.Pun;
 
 public class PlayerCreator : MonoBehaviour
 {
-    void Start()
-    {
-        Invoke(nameof(CreatePlayer), 0.5f);
-    }
+    [Header("References")]
+    [SerializeField]
+    protected GameDirector director;
+    public string[] charactersNames;
+    public GameObject characterSelector;
 
-    void CreatePlayer()
+    public void CreatePlayer(int index)
     {
-        PhotonNetwork.Instantiate("MP_Player", transform.position, Quaternion.identity);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 1);
+        Camera.main.gameObject.SetActive(false);
+        characterSelector.SetActive(false);
+        PhotonNetwork.Instantiate(charactersNames[index], director.worldSpawnPoints[Random.Range(0, director.worldSpawnPoints.Length)], Quaternion.identity);
     }
 }

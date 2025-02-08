@@ -346,8 +346,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identity: Player
   health: 100
+  maxHealth: 100
   isImmortal: 0
   substance: 1
+  armor: 0
+  maxArmor: 100
+  activeWeapon: {fileID: 0}
 --- !u!114 &7314493186882724419
 MonoBehaviour:
   m_ObjectHideFlags: 0
