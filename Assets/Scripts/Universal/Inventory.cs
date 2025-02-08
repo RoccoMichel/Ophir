@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
         {
             cycleIndex += (int)cycleAction.ReadValue<float>();
 
-            if (cycleIndex < 0) cycleIndex = weapons.Count - 1;
+            if (cycleIndex < 0) cycleIndex = Mathf.Clamp(weapons.Count - 1, 0, weapons.Count);
             if (cycleIndex > weapons.Count - 1) cycleIndex = 0;
 
             cycling = true;
