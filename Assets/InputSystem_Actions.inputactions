@@ -463,23 +463,23 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "86e8e84d-bd88-4093-b2fb-300a092126be",
-                    "path": "<Mouse>/scroll/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Cycle",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
+                    "name": "Negative",
                     "id": "0ab82885-a125-439b-afa5-79eb074a2bea",
                     "path": "<Mouse>/scroll/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Cycle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "86e8e84d-bd88-4093-b2fb-300a092126be",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Cycle",
                     "isComposite": false,
                     "isPartOfComposite": true
