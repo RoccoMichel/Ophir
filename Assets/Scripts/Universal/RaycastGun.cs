@@ -11,13 +11,15 @@ public class RaycastGun : RangedWeapon
     {
         base.Shoot();
 
-        if (Physics.Raycast(barrel.position, barrel.TransformDirection(Vector3.forward), out RaycastHit hit, distance, layerMask))
+        if (Physics.Raycast(playerView.position, playerView.TransformDirection(Vector3.forward), out RaycastHit hit, distance, layerMask))
         {
             if (debug)
-                Debug.DrawRay(barrel.position, barrel.TransformDirection(Vector3.forward) * hit.distance, Color.yellow, 0.2f);
+                Debug.DrawRay(playerView.position, playerView.TransformDirection(Vector3.forward) * hit.distance, Color.yellow, 0.2f);
 
             if (hit.transform.gameObject.GetComponent<Entity>() != null)
                 DoDamage(hit.transform.gameObject.GetComponent<Entity>());
         }
+
+        // Effects & Sounds at barrel Transform
     }
 }

@@ -51,6 +51,7 @@ public class RangedWeapon : Weapon
     // References
     public Image crosshair;
     protected InputAction reloadAction;
+    protected Transform playerView;
 
     // variables for spread, kickback & charge to fire
 
@@ -77,6 +78,16 @@ public class RangedWeapon : Weapon
         base.VariableAssignment();
         reloadAction = InputSystem.actions.FindAction("Reload");
         if (barrel == null) barrel = gameObject.transform;
+
+        if (playerView == null)
+        {
+            try { playerView = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Camera>().transform; }
+            catch
+            {
+                if (Camera.main == null) playerView = transform;
+                else playerView = Camera.main.transform;
+            }
+        }
     }
 
     public override void OnUpdate()
