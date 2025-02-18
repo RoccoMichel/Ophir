@@ -1,5 +1,4 @@
 using UnityEngine;
-using static Entity;
 
 public class Entity : MonoBehaviour
 {

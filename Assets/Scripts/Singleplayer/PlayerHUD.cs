@@ -36,6 +36,8 @@ public class PlayerHUD : MonoBehaviour
             ammoDisplay.text = $"{gunReference.activeAmmo}|\t{gunReference.carryingAmmo}";
         }
 
+        // instead of this animation have a selector icon pop-in on top of the selected gun
+        // no need for horizontal movement.
         if (weaponSelector != null && inventory != null)
         {
             float targetPosition = inventory.cycleIndex * -100; // final position

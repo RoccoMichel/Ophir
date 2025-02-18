@@ -1,0 +1,70 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
+public class DeathmatchManager : MonoBehaviour
+{
+    [Header("Match Settings")]
+    public int minWinScore = 10;
+
+    [Header("Player Settings")]
+    [SerializeField] internal bool quickLooking;
+    [SerializeField] protected float labelSize = 25f;
+    [HideInInspector] public ServerPlayer winner;
+    protected InputAction quickLookAction;
+
+    public List<ServerPlayer> players = new();
+
+    private void Start()
+    {
+        quickLookAction = InputSystem.actions.FindAction("QuickLook");
+    }
+
+    private void Update()
+    {
+        if (quickLookAction != null && quickLookAction.IsPressed()) quickLooking = true;
+        else quickLooking = false;
+
+        if (winner = null) CheckForWinner(players.ToArray());
+    }
+
+    void CheckForWinner(ServerPlayer[] players)
+    {
+        foreach(ServerPlayer p in players)
+        {
+            if (p.score >= minWinScore)
+            {
+                winner = p;
+                EndGame();
+                return;
+            }
+
+            // No winner
+        }
+
+        winner = null;
+    }
+
+    public virtual void EndGame()
+    {
+        Debug.Log($"Game Over!\t{winner.nickname} won!");
+    }
+
+    private void OnGUI()
+    {
+        if (quickLooking)
+        {
+            if (true != false)
+            {
+                Vector2 position = Vector2.zero;
+                foreach (ServerPlayer p in players)
+                {
+                    position += new Vector2(position.x, labelSize);
+                    GUI.Label(new Rect(position, Vector2.one * labelSize), $"{p.nickname}\t|{p.score}");
+                }
+            }
+
+            // Make an actual UI element please
+        }
+    }
+}

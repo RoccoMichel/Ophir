@@ -28,6 +28,6 @@ public class CreditsLogic : MonoBehaviour
             Mathf.Lerp(-creditsObject.sizeDelta.y / 2, creditsObject.sizeDelta.y / 2,
             Mathf.InverseLerp(0, durationSeconds, timer)));
 
-        if (timer > durationSeconds) LoadLogic.LoadSceneByNumber(0);
+        if (timer > durationSeconds) LoadLogic.LoadSceneByNumber(0); // Return to menu when done
     }
 }
