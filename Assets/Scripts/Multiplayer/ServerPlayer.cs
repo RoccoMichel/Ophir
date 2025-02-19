@@ -1,6 +1,6 @@
 using Photon.Pun;
 
-public class ServerPlayer : BasePlayer
+public class ServerPlayer : BasePlayer // Very much unfinished
 {
     public int score;
     public string nickname = "annon";

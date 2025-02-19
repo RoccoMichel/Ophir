@@ -6,7 +6,7 @@ public class Rocket : Projectile
     [Range(0f, 1f)]
     public float turnSpeed = 0.3f;
     public float moveSpeed = 50f;
-    public float blastRadius = 2f;
+    public float radius = 2f;
     public float force = 10f;
     public bool homing;
     public Transform target;
@@ -39,7 +39,7 @@ public class Rocket : Projectile
 
     public override void Die()
     {
-        Explode(damage, force, blastRadius);
+        Explode(damage, force, radius);
 
         base.Die();
     }
