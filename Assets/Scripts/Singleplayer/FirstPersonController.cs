@@ -5,6 +5,11 @@ public class FirstPersonController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float acceleration = 7f;
+    public float deceleration = 10f;
+    protected float speed;
+    internal Vector2 moveValue;
+    [Header("Jumping")]
     public float jumpStrength;
     public float gravity;
     public bool grounded;
@@ -28,11 +33,17 @@ public class FirstPersonController : MonoBehaviour
     void Update()
     {
         // Movement
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
+        if (moveAction.IsPressed())
+        {
+            speed += acceleration * Time.deltaTime;
+            moveValue = moveAction.ReadValue<Vector2>();
+        }
+        else speed -= deceleration * Time.deltaTime;
+        speed = Mathf.Clamp01(speed);
 
         grounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        Vector3 move = transform.right * moveValue.x + transform.forward * moveValue.y;
+        Vector3 move = (transform.right * moveValue.x + transform.forward * moveValue.y) * speed * moveSpeed;
 
         if (grounded && velocity.y < 0) velocity.y = -2f;
         velocity.y += gravity * Time.deltaTime;
@@ -42,7 +53,6 @@ public class FirstPersonController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpStrength * -2 * gravity);
         }
 
-        controller.Move(velocity * Time.deltaTime);
-        controller.Move(moveSpeed * Time.deltaTime * move);
+        controller.Move(Time.deltaTime * (velocity + move));
     }
 }

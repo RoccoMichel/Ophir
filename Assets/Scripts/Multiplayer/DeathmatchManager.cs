@@ -6,10 +6,11 @@ public class DeathmatchManager : MonoBehaviour
 {
     [Header("Match Settings")]
     public int minWinScore = 10;
+    public Vector3[] worldSpawnPoints;
 
     [Header("Player Settings")]
     [SerializeField] internal bool quickLooking;
-    [SerializeField] protected float labelSize = 25f;
+    [SerializeField] protected float labelSize = 250f;
     [HideInInspector] public ServerPlayer winner;
     protected InputAction quickLookAction;
 
@@ -17,7 +18,7 @@ public class DeathmatchManager : MonoBehaviour
 
     private void Start()
     {
-        quickLookAction = InputSystem.actions.FindAction("QuickLook");
+        quickLookAction = InputSystem.actions.FindAction("Quick Look");
     }
 
     private void Update()
@@ -47,7 +48,7 @@ public class DeathmatchManager : MonoBehaviour
 
     public virtual void EndGame()
     {
-        Debug.Log($"Game Over!\t{winner.nickname} won!");
+        Debug.Log($"Game Over!\t{winner.identity} won!");
     }
 
     private void OnGUI()
@@ -60,7 +61,7 @@ public class DeathmatchManager : MonoBehaviour
                 foreach (ServerPlayer p in players)
                 {
                     position += new Vector2(position.x, labelSize);
-                    GUI.Label(new Rect(position, Vector2.one * labelSize), $"{p.nickname}\t|{p.score}");
+                    GUI.Label(new Rect(position, Vector2.one * labelSize), $"{p.identity}\t|{p.score}");
                 }
             }
 

@@ -93,7 +93,7 @@ MonoBehaviour:
     m_Value: 20000
   groundTint:
     m_OverrideState: 1
-    m_Value: {r: 0.122641504, g: 0.1043775, b: 0.09313812, a: 1}
+    m_Value: {r: 0.05834941, g: 0.053973336, b: 0.050968755, a: 1}
   groundColorTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -169,8 +169,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1.4867926, g: 0.6923569, b: 0.52458525, a: 1}
   maxFogDistance:
     m_OverrideState: 0
     m_Value: 5000
@@ -184,14 +184,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1000
   baseHeight:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 50
   maximumHeight:
     m_OverrideState: 0
     m_Value: 50
   meanFreePath:
-    m_OverrideState: 0
-    m_Value: 400
+    m_OverrideState: 1
+    m_Value: 100
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -328,7 +328,7 @@ MonoBehaviour:
     m_Value: 2
   limitMax:
     m_OverrideState: 1
-    m_Value: 14
+    m_Value: 15
   curveMap:
     m_OverrideState: 0
     m_Value:

@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,8 +36,10 @@ public class DamageIndicator : MonoBehaviour
         if (indicator == null)
         {
             Debug.LogWarning("Indicator GameObject is missing Reference!\nAttempting to find in Assets drawer...");
-            
-            indicator = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Damage Indicator/Indicator PREFAB.prefab");
+
+#if UNITY_EDITOR
+            indicator = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Damage Indicator/Indicator PREFAB.prefab");
+#endif
 
             if (indicator == null) Debug.LogWarning("[Indicator PREFAB] has been MOVED or RENAMED!\nCode fix required at Ln:41!");
             else Debug.Log("Successfully found [Indicator PREFAB] in Content Browser\nHowever manual assignment might be required for build!");

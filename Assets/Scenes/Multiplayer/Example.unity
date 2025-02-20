@@ -2910,8 +2910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6949e012745c0f44087e00aeaaaf9755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  director: {fileID: 1697949368}
+  manager: {fileID: 1697949370}
   charactersNames:
+  - MP_Player
   - MP_Player
   characterSelector: {fileID: 757966184}
 --- !u!43 &557884737
@@ -77793,7 +77794,7 @@ GameObject:
   - component: {fileID: 1658553855}
   - component: {fileID: 1658553854}
   m_Layer: 3
-  m_Name: Floor
+  m_Name: FLOOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78163,29 +78164,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1697949369}
-  - component: {fileID: 1697949368}
+  - component: {fileID: 1697949370}
   m_Layer: 0
-  m_Name: Director
+  m_Name: MANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1697949368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697949367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a31ddaa80a5c2641b4d403945abe35f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldSpawnPoints:
-  - {x: 0, y: 5, z: 0}
-  - {x: 0, y: 15, z: 0}
 --- !u!4 &1697949369
 Transform:
   m_ObjectHideFlags: 0
@@ -78201,6 +78187,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697949370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697949367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93d6f39d69e8d848937408ee7e8a007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minWinScore: 10
+  worldSpawnPoints:
+  - {x: 0, y: 5, z: 0}
+  - {x: 5, y: 5, z: 5}
+  quickLooking: 0
+  labelSize: 500
+  winner: {fileID: 0}
+  players: []
 --- !u!1001 &1713004646
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -805,6 +805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  acceleration: 7
+  deceleration: 9
   jumpStrength: 2
   gravity: -20
   grounded: 0

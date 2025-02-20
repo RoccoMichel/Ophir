@@ -5,7 +5,7 @@ public class PlayerCreator : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    protected GameDirector director;
+    protected DeathmatchManager manager;
     public string[] charactersNames;
     public GameObject characterSelector;
 
@@ -13,6 +13,6 @@ public class PlayerCreator : MonoBehaviour
     {
         Camera.main.gameObject.SetActive(false);
         characterSelector.SetActive(false);
-        PhotonNetwork.Instantiate(charactersNames[index], director.worldSpawnPoints[Random.Range(0, director.worldSpawnPoints.Length)], Quaternion.identity);
+        PhotonNetwork.Instantiate(charactersNames[index], manager.worldSpawnPoints[Random.Range(0, manager.worldSpawnPoints.Length)], Quaternion.identity);
     }
 }

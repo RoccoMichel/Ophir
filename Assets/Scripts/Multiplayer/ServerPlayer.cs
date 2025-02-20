@@ -3,12 +3,16 @@ using Photon.Pun;
 public class ServerPlayer : BasePlayer // Very much unfinished
 {
     public int score;
-    public string nickname = "annon";
 
     private void Start()
     {
-        try { nickname = PhotonNetwork.NickName; }
+        try { identity = PhotonNetwork.NickName; }
         catch { }
+
+        if (FindAnyObjectByType<DeathmatchManager>() != null)
+        {
+            FindAnyObjectByType<DeathmatchManager>().GetComponent<DeathmatchManager>().players.Add(this);
+        }
     }
 
     public virtual void AddScore(int amount)

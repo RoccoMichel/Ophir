@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer/Example.unity
     guid: 73b2c09692fe02c4a87904544cf8c96a
   - enabled: 1
-    path: Assets/Scenes/Singleplayer/Testing.unity
+    path: Assets/Scenes/Developer/Testing.unity
     guid: 73e383aae17390c45957abbb118eeae2
   - enabled: 1
     path: Assets/Scenes/Singleplayer/C0/C0_0.unity
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/Singleplayer/C5/C5_Final.unity
+    guid: 829d381f1135fa040b78a1f72e742aae
   - enabled: 1
     path: Assets/Scenes/Menus/Credits.unity
     guid: a0f69382e5dfa2d4b869aaed2877c23c
