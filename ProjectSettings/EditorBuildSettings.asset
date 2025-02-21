@@ -21,14 +21,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Singleplayer/C0/C0_0.unity
     guid: 39b4c1067f3d6024699e4c3a83625860
   - enabled: 1
-    path: Assets/Scenes/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+    path: Assets/Scenes/Singleplayer/C1/C1_0.unity
+    guid: 24e30d7d436fc5c44bee0da6b1c3a819
+  - enabled: 1
+    path: Assets/Scenes/Singleplayer/C1/C1_1.unity
+    guid: 50b812c02b188c34f854c5e0a9410056
   - enabled: 1
     path: Assets/Scenes/Singleplayer/C5/C5_Final.unity
     guid: 829d381f1135fa040b78a1f72e742aae
   - enabled: 1
+    path: Assets/Scenes/OutdoorsScene.unity
+    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
     path: Assets/Scenes/Menus/Credits.unity
     guid: a0f69382e5dfa2d4b869aaed2877c23c
+  - enabled: 1
+    path: Assets/Scenes/Developer/levelUNO.unity
+    guid: 2e3825d406e5cfe43ac0f9a87b336cb6
+  - enabled: 1
+    path: Assets/Scenes/Developer/leveDUO.unity
+    guid: 4e488470ff3080c49834e6bded0039fa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_UseUCBPForAssetBundles: 0

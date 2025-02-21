@@ -43,7 +43,7 @@ public class FirstPersonController : MonoBehaviour
 
         grounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        Vector3 move = (transform.right * moveValue.x + transform.forward * moveValue.y) * speed * moveSpeed;
+        Vector3 move = moveSpeed * speed * (transform.right * moveValue.x + transform.forward * moveValue.y);
 
         if (grounded && velocity.y < 0) velocity.y = -2f;
         velocity.y += gravity * Time.deltaTime;
