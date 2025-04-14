@@ -57,12 +57,6 @@ public class Inventory : MonoBehaviour
 
         if (cycling && confirmAction.WasPressedThisFrame())
             SwitchWeapon(cycleIndex);
-
-        // DEBUGGING ///////////////////////////////////////////
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            //hud.Refresh(this);
-        }
     }
 
     public void AddWeapon()
@@ -91,12 +85,60 @@ public class Inventory : MonoBehaviour
         Resources.Load(weaponResourcesPath + name);
     }
 
-    public void Refill(int amount)
+    public void RefillRandom(int amount)
     {
-        foreach (var weapon in weapons)
+        // get all eligible weapons
+        List<RangedWeapon> eligible = new();
+
+        for (int i = 0; i < weapons.Count; i++)
         {
-            try { weapon.GetComponent<RangedWeapon>().AddAmmo(amount); }
+            if (weapons[i].GetComponent<RangedWeapon>() == null) continue;
+            RangedWeapon candidate = weapons[i].GetComponent<RangedWeapon>();
+
+            if (candidate.GetMissingAmmo() > 0) eligible.Add(candidate);
+        }
+
+        if (eligible.Count == 0)
+        {
+            Debug.LogWarning("No eligible weapons found! In such case refrain from calling this method");
+            return;
+        }
+
+        int chosen = Random.Range(0, weapons.Count);
+
+        hud.NewAmmo(chosen, weapons[chosen].GetComponent<RangedWeapon>().GetAddableAmmo(amount));
+        weapons[chosen].GetComponent<RangedWeapon>().AddAmmo(amount);
+    }
+
+    public void RefillSpecific(string identity, int amount)
+    {
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            try
+            {
+                if (weapons[i].GetComponent<Weapon>().identity == identity)
+                {
+                    hud.NewAmmo(i, weapons[i].GetComponent<RangedWeapon>().GetAddableAmmo(amount));
+                    weapons[i].GetComponent<RangedWeapon>().AddAmmo(amount);
+                    break;
+                }
+            }
             catch { }
+        }
+    }
+
+    public void RefillAll()
+    {
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            try
+            {
+                RangedWeapon weapon = weapons[i].GetComponent<RangedWeapon>();
+
+                hud.NewAmmo(i, weapon.GetMissingAmmo());
+                weapon.AddMaxAmmo();
+            }
+            catch { /*In this case it was a melee weapon with no ammunition */ }
         }
     }
 }

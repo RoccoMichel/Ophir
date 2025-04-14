@@ -10,9 +10,9 @@ public class NewAmmo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) Instance(Random.Range(0, 1000));
+        // display amount while ticking down over time
         if (displayValue > 0)
-            amountDisplay.text = $"+ {(int)Mathf.Lerp(displayValue, 0, Mathf.Clamp01(decreaseRate += Time.deltaTime))}";
+            amountDisplay.text = $"+ {Mathf.Ceil(Mathf.Lerp(displayValue, 0, Mathf.Clamp01(decreaseRate += Time.deltaTime)))}";
     }
 
     public void Instance(int amount)
@@ -24,9 +24,7 @@ public class NewAmmo : MonoBehaviour
         var emission = particle.emission;
         emission.rateOverTime = amount + 1; // plus 1 cause particle effect is kind of goofy
 
+        amountDisplay.GetComponent<Animator>().Play("Full");
         particle.Play();
-
-        // turn on object (visually)
-        // create effect based on amount
     }
 }

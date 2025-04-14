@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29966074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29966076}
+  - component: {fileID: 29966075}
+  m_Layer: 0
+  m_Name: realWeapon1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &29966075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29966074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc446ba2e9649b4193eb1eca5bdc473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  identity: Unnamed Weapon
+  damage: 10
+  distance: 50
+  fovKickback: 0
+  rmp: 60
+  activeAmmo: 10
+  capacityAmmo: 10
+  carryingAmmo: 95
+  maxAmmo: 100
+  saveAmmo: 1
+  automatic: 0
+  reloadAllAtOnce: 1
+  reload: 0
+  barrel: {fileID: 0}
+  crosshair: {fileID: 0}
+--- !u!4 &29966076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29966074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196700647
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258055874}
+  - component: {fileID: 258055875}
   m_Layer: 0
   m_Name: realWeapon1
   m_TagString: Untagged
@@ -233,6 +294,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258055875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258055873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc446ba2e9649b4193eb1eca5bdc473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  identity: Unnamed Weapon
+  damage: 10
+  distance: 50
+  fovKickback: 0
+  rmp: 60
+  activeAmmo: 10
+  capacityAmmo: 10
+  carryingAmmo: 50
+  maxAmmo: 100
+  saveAmmo: 1
+  automatic: 0
+  reloadAllAtOnce: 1
+  reload: 0
+  barrel: {fileID: 0}
+  crosshair: {fileID: 0}
 --- !u!1 &460860941
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,14 +502,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d025b615dd8c345a2fc877bdf1d5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSelector: {fileID: 0}
+  healthDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 0}
   playerReference: {fileID: 0}
   gunReference: {fileID: 0}
+  weaponSelector: {fileID: 0}
   weapons: []
   template: {fileID: 1225602965}
   selector: {fileID: 1787325313}
-  healthDisplay: {fileID: 0}
-  ammoDisplay: {fileID: 0}
 --- !u!114 &471567171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,8 +528,9 @@ MonoBehaviour:
   cycleTime: 1
   weapons:
   - {fileID: 258055873}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1579873548}
+  - {fileID: 1031051348}
+  - {fileID: 29966074}
   hud: {fileID: 0}
 --- !u!1 &844447322
 GameObject:
@@ -5426,6 +5516,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 196700648}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1031051348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031051350}
+  - component: {fileID: 1031051349}
+  m_Layer: 0
+  m_Name: realWeapon1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1031051349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031051348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc446ba2e9649b4193eb1eca5bdc473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  identity: gang
+  damage: 10
+  distance: 50
+  fovKickback: 0
+  rmp: 60
+  activeAmmo: 10
+  capacityAmmo: 10
+  carryingAmmo: 0
+  maxAmmo: 100
+  saveAmmo: 1
+  automatic: 0
+  reloadAllAtOnce: 1
+  reload: 0
+  barrel: {fileID: 0}
+  crosshair: {fileID: 0}
+--- !u!4 &1031051350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031051348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225602964
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,6 +5744,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1579873548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579873550}
+  - component: {fileID: 1579873549}
+  m_Layer: 0
+  m_Name: realWeapon1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1579873549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579873548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc446ba2e9649b4193eb1eca5bdc473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  identity: Unnamed Weapon
+  damage: 10
+  distance: 50
+  fovKickback: 0
+  rmp: 60
+  activeAmmo: 10
+  capacityAmmo: 10
+  carryingAmmo: 100
+  maxAmmo: 100
+  saveAmmo: 1
+  automatic: 0
+  reloadAllAtOnce: 1
+  reload: 0
+  barrel: {fileID: 0}
+  crosshair: {fileID: 0}
+--- !u!4 &1579873550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579873548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1787325312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,7 +5821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1787325313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5759,6 +5969,7 @@ GameObject:
   - component: {fileID: 2087270452}
   - component: {fileID: 2087270454}
   - component: {fileID: 2087270453}
+  - component: {fileID: 2087270455}
   m_Layer: 5
   m_Name: Amount Display
   m_TagString: Untagged
@@ -5884,6 +6095,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087270451}
   m_CullTransparentMesh: 1
+--- !u!95 &2087270455
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087270451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91a0b35b5ad7ee54a8aa63b9b1c459bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2097109887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6133,3 +6366,6 @@ SceneRoots:
   - {fileID: 471567169}
   - {fileID: 1945809106}
   - {fileID: 258055874}
+  - {fileID: 1579873550}
+  - {fileID: 1031051350}
+  - {fileID: 29966076}

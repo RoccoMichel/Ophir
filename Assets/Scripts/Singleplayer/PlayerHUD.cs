@@ -5,16 +5,17 @@ using System.Collections.Generic;
 public class PlayerHUD : MonoBehaviour
 {
     [Header("References")]
-    public RectTransform weaponSelector; // max 6 weapons with current layout config
+    [SerializeField] internal TMP_Text healthDisplay;
+    [SerializeField] internal TMP_Text ammoDisplay;
     public BasePlayer playerReference;
     public RangedWeapon gunReference;
 
     [Header("Weapon UI")]
+    public RectTransform weaponSelector; // max 6 weapons with current layout config, else it goes beyond the layout group
     [SerializeField] internal List<RectTransform> weapons = new();
     [SerializeField] internal RectTransform template;
     [SerializeField] internal RectTransform selector;
-    [SerializeField] internal TMP_Text healthDisplay;
-    [SerializeField] internal TMP_Text ammoDisplay;
+
 
     private void Start()
     {
@@ -67,7 +68,10 @@ public class PlayerHUD : MonoBehaviour
     {
         selector.gameObject.SetActive(value);
     }
-}
 
-// next:
-// add ammo thingy
+    public void NewAmmo(int index, int amount)
+    {
+        if (amount <= 0) return;
+        weapons[index].GetComponentInChildren<NewAmmo>().Instance(amount);
+    }
+}

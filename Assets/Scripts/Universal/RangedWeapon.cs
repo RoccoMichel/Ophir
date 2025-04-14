@@ -142,4 +142,22 @@ public class RangedWeapon : Weapon
     {
         carryingAmmo = Mathf.Clamp(carryingAmmo + amount, 0, maxAmmo);
     }
+    public virtual void AddMaxAmmo()
+    {
+        carryingAmmo = maxAmmo;
+    }
+    public int GetMissingAmmo()
+    {
+        return maxAmmo - carryingAmmo;
+    }
+    /// <summary>
+    /// Returns how much of amount can be added to this weapon's ammo
+    /// </summary>
+    public int GetAddableAmmo(int amount)
+    {
+        int freeSpace = maxAmmo - carryingAmmo;
+
+        if (freeSpace > amount) return amount;
+        else return amount - (amount - freeSpace);
+    }
 }

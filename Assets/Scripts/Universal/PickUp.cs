@@ -21,7 +21,7 @@ public class PickUp : MonoBehaviour
 
                 case PickUpTypes.ammo:
 
-                    other.GetComponent<Inventory>().Refill(amount);
+                    other.GetComponent<Inventory>().RefillRandom(amount);
                     break;
             }
         }
