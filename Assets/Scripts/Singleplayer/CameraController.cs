@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] internal Vector2 mouseInput;
     [SerializeField] protected float horizontal, vertical;
     [HideInInspector] public Vector2 rotation;
+    [HideInInspector] public Vector2 offset;
     private float xRotation = 0f;
     protected InputAction lookAction;
 
@@ -83,6 +85,7 @@ public class CameraController : MonoBehaviour
         );
 
         // Update horizontal and vertical
+        rotation += offset;
         horizontal += rotation.x;
         vertical -= rotation.y;
 
@@ -108,6 +111,8 @@ public class CameraController : MonoBehaviour
         {
             xRotation -= rotation.y;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            // Apply rotation for FirstPerson ONLY
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             target.transform.Rotate(Vector3.up * rotation.x);
 
@@ -217,5 +222,27 @@ public class CameraController : MonoBehaviour
             limit = new Vector2(Mathf.Abs(limit.x), Mathf.Abs(limit.y));
             Debug.LogWarning("Limit was set to negative, value has been set to absolute");
         }
+    }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPosition = transform.localPosition;
+        float elapsed = 0;
+
+        while(elapsed < duration)
+        {
+            Vector2 shake = new()
+            {
+                x = Random.Range(-1f, 1f) * magnitude,
+                y = Random.Range(-1f, 1f) * magnitude
+            };
+
+            transform.localPosition = new Vector3(originalPosition.x + shake.x, originalPosition.y + shake.y, originalPosition.z);
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.localPosition = originalPosition;
     }
 }

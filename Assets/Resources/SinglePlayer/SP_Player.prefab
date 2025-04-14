@@ -285,7 +285,7 @@ MonoBehaviour:
   invertY: 0
   sensitivityFromPref: 0
   prefKey: Sensitivity
-  alwaysUpdate: 0
+  alwaysUpdate: 1
   lockZAxis: 1
   cursorConstraint: 1
   moveConstraint: 4
@@ -295,6 +295,7 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   rotation: {x: 0, y: 0}
+  offset: {x: 0, y: 0}
 --- !u!1 &1648090484485578956
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,11 +23,11 @@ public class RangedWeapon : Weapon
     /// </summary>
     public int capacityAmmo = 10;
     /// <summary>
-    /// Ammo Player is carrying (ammo in weapons excluded)
+    /// Ammo Player is carrying (active ammo excluded)
     /// </summary>
     public int carryingAmmo = 50;
     /// <summary>
-    /// Max ammo player can hold for this weapon (ammo in weapons excluded)
+    /// Max ammo player can hold for this weapon (active ammo excluded)
     /// </summary>
     public int maxAmmo = 100;
     /// <summary>
@@ -136,5 +136,10 @@ public class RangedWeapon : Weapon
             activeAmmo++;
             carryingAmmo--;
         }
+    }
+
+    public virtual void AddAmmo(int amount)
+    {
+        carryingAmmo = Mathf.Clamp(carryingAmmo + amount, 0, maxAmmo);
     }
 }

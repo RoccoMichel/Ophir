@@ -1,26 +1,30 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerHUD : MonoBehaviour
 {
-    [Range(0f, 1f)]
-    public float selectorSlideSpeed;
     [Header("References")]
-    public RectTransform weaponSelector;
-    public Inventory inventory;
+    public RectTransform weaponSelector; // max 6 weapons with current layout config
     public BasePlayer playerReference;
     public RangedWeapon gunReference;
+
+    [Header("Weapon UI")]
+    [SerializeField] internal List<RectTransform> weapons = new();
+    [SerializeField] internal RectTransform template;
+    [SerializeField] internal RectTransform selector;
     [SerializeField] internal TMP_Text healthDisplay;
     [SerializeField] internal TMP_Text ammoDisplay;
 
     private void Start()
     {
         if (playerReference == null)
-            playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
+            playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();    
     }
 
     private void Update()
     {
+        // Set Health / Armor Display
         if (playerReference != null)
         {
             if (playerReference.armor > 0)
@@ -29,21 +33,41 @@ public class PlayerHUD : MonoBehaviour
                 healthDisplay.text = playerReference.health.ToString();
         }
 
+        // Set Ammo Display
         if (gunReference != null)
         {
             ammoDisplay.text = "0|\t0";
 
             ammoDisplay.text = $"{gunReference.activeAmmo}|\t{gunReference.carryingAmmo}";
         }
+    }
 
-        // instead of this animation have a selector icon pop-in on top of the selected gun
-        // no need for horizontal movement.
-        if (weaponSelector != null && inventory != null)
+    public void Refresh(Inventory inventory)
+    {
+        foreach(RectTransform transform in weapons)
+            Destroy(transform.gameObject);
+        weapons.Clear();
+
+        for (int i = 0; i < inventory.weapons.Count; i++)
         {
-            float targetPosition = inventory.cycleIndex * -100; // final position
-            targetPosition = Mathf.Lerp(weaponSelector.anchoredPosition.x, targetPosition, selectorSlideSpeed); // position smoothed out
-
-            weaponSelector.anchoredPosition = new Vector2 (targetPosition, weaponSelector.anchoredPosition.y);
+            template.gameObject.SetActive(true);
+            weapons.Add(Instantiate(template, template.parent));
+            template.gameObject.SetActive(false);
         }
     }
+
+    public void SetSelector(int index)
+    {
+        SetSelector(true);
+        selector.position = weapons[index].position;
+        selector.localScale = weapons[index].localScale;
+    }
+
+    public void SetSelector(bool value)
+    {
+        selector.gameObject.SetActive(value);
+    }
 }
+
+// next:
+// add ammo thingy
