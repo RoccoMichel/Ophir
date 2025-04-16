@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 /// <summary>
 /// Weapons that shoot something
@@ -49,7 +48,6 @@ public class RangedWeapon : Weapon
     public Transform barrel;
 
     // References
-    public Image crosshair;
     protected InputAction reloadAction;
     protected Transform playerView;
 

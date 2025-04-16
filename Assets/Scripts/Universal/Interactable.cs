@@ -8,14 +8,14 @@ public class Interactable : MonoBehaviour
     public UnityEvent consequence;
     public bool active;
     public bool interactable;
-    public ValidationMethods validation;
+    public ValidationMethods validation = ValidationMethods.trigger;
     public float minDistance = 5f;
 
     // non-inspector variables
     protected Transform player; 
     protected InputAction interactAction;
 
-    public enum ValidationMethods { distance, trigger }
+    public enum ValidationMethods { none, distance, trigger }
 
     private void Start()
     {
@@ -45,11 +45,7 @@ public class Interactable : MonoBehaviour
             if (Vector3.Distance(transform.position, player.position) < minDistance)
                 interactable = true;
             else interactable = false;
-
         }
-
-        // Early return if not interactable in this frame
-        if (!interactable) return;
     }
 
     public virtual void Interaction()

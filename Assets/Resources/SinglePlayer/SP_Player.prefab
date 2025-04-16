@@ -380,6 +380,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 250
   activeAmmo: 25
   capacityAmmo: 45
@@ -390,7 +392,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 5658976909327985533}
-  crosshair: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 9
@@ -500,6 +501,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 200
   activeAmmo: 10
   capacityAmmo: 20
@@ -510,7 +513,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 1
   barrel: {fileID: 335582603773211452}
-  crosshair: {fileID: 0}
   pelletCount: 10
   spreadAngle: 1
   pellet: {fileID: 0}
@@ -622,6 +624,8 @@ MonoBehaviour:
   damage: 10
   distance: 30
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 120
   activeAmmo: 10
   capacityAmmo: 10
@@ -632,7 +636,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 84034462381432122}
-  crosshair: {fileID: 0}
   projectile: {fileID: 0}
 --- !u!33 &6520128574078554315
 MeshFilter:
@@ -712,7 +715,7 @@ Transform:
   m_GameObject: {fileID: 3365304595630257376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -773,6 +776,7 @@ MonoBehaviour:
   cycleIndex: 0
   cycleTime: 1
   weapons: []
+  hud: {fileID: 0}
 --- !u!114 &3343419876530317564
 MonoBehaviour:
   m_ObjectHideFlags: 0

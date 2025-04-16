@@ -27,8 +27,8 @@ public class Inventory : MonoBehaviour
         {
             try { hud = GameObject.FindGameObjectWithTag("UI").GetComponent<PlayerHUD>(); } 
             catch { hud = FindAnyObjectByType<PlayerHUD>().GetComponent<PlayerHUD>(); }
-            finally { hud.Refresh(this); }
         }
+        if (hud != null) hud.Refresh(this);
     }
 
     private void Update()
@@ -59,8 +59,10 @@ public class Inventory : MonoBehaviour
             SwitchWeapon(cycleIndex);
     }
 
-    public void AddWeapon()
+    public void AddWeapon(GameObject newWeapon)
     {
+        weapons.Add(newWeapon);
+
         hud.Refresh(this);
         hud.SetSelector(false);
     }
@@ -75,9 +77,15 @@ public class Inventory : MonoBehaviour
 
     public void SwitchWeapon(int index)
     {
+        Weapon w = weapons[index].GetComponent<Weapon>();
         activeIndex = index;
+
         timer = 0;
         hud.SetSelector(false);
+        hud.SetCrosshair(w.crosshair);
+
+        if (weapons[activeIndex].gameObject.TryGetComponent(out RangedWeapon r)) hud.gunReference = r;
+        else hud.gunReference = null;
     }
 
     public void LoadWeaponFromName(string name)
@@ -89,41 +97,43 @@ public class Inventory : MonoBehaviour
     {
         // get all eligible weapons
         List<RangedWeapon> eligible = new();
+        List<int> indexes = new();
 
         for (int i = 0; i < weapons.Count; i++)
         {
-            if (weapons[i].GetComponent<RangedWeapon>() == null) continue;
-            RangedWeapon candidate = weapons[i].GetComponent<RangedWeapon>();
+            if (!weapons[i].TryGetComponent(out RangedWeapon r)) continue;
 
-            if (candidate.GetMissingAmmo() > 0) eligible.Add(candidate);
+            if (r.GetMissingAmmo() > 0)
+            {
+                eligible.Add(r);
+                indexes.Add(i);
+            }
         }
 
-        if (eligible.Count == 0)
+        if (eligible.Count == 0) // Exception
         {
             Debug.LogWarning("No eligible weapons found! In such case refrain from calling this method");
             return;
         }
 
-        int chosen = Random.Range(0, weapons.Count);
+        // choose random
+        int chosen = Random.Range(0, eligible.Count);
 
-        hud.NewAmmo(chosen, weapons[chosen].GetComponent<RangedWeapon>().GetAddableAmmo(amount));
-        weapons[chosen].GetComponent<RangedWeapon>().AddAmmo(amount);
+        // give ammunition
+        hud.NewAmmo(indexes[chosen], eligible[chosen].GetComponent<RangedWeapon>().GetAddableAmmo(amount));
+        eligible[chosen].AddAmmo(amount);
     }
 
     public void RefillSpecific(string identity, int amount)
     {
         for (int i = 0; i < weapons.Count; i++)
         {
-            try
+            if (weapons[i].GetComponent<Weapon>().identity == identity && weapons[i].TryGetComponent(out RangedWeapon r))
             {
-                if (weapons[i].GetComponent<Weapon>().identity == identity)
-                {
-                    hud.NewAmmo(i, weapons[i].GetComponent<RangedWeapon>().GetAddableAmmo(amount));
-                    weapons[i].GetComponent<RangedWeapon>().AddAmmo(amount);
-                    break;
-                }
+                hud.NewAmmo(i, r.GetAddableAmmo(amount));
+                r.AddAmmo(amount);
+                break;
             }
-            catch { }
         }
     }
 
@@ -131,14 +141,11 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < weapons.Count; i++)
         {
-            try
+            if (weapons[i].TryGetComponent(out RangedWeapon r)) // check if weapon has ammonition
             {
-                RangedWeapon weapon = weapons[i].GetComponent<RangedWeapon>();
-
-                hud.NewAmmo(i, weapon.GetMissingAmmo());
-                weapon.AddMaxAmmo();
+                hud.NewAmmo(i, r.GetMissingAmmo());
+                r.AddMaxAmmo();
             }
-            catch { /*In this case it was a melee weapon with no ammunition */ }
         }
     }
 }

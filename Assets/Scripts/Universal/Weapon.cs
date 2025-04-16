@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
     public float damage = 10f;
     public float distance = 50f;
     public float fovKickback = 0f;
+    public Sprite icon;
+    public Sprite crosshair;
 
     protected InputAction attackAction;
     protected float timeSinceLastShot = 0f;

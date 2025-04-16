@@ -9,7 +9,7 @@ public class MeleeWeapon : Weapon
     /// The minimum time between attacks in Seconds
     /// </summary>
     [Header("Melee Setting")]
-    public float cooldown;
+    public float cooldown = 0.4f;
 
     public override void OnUpdate()
     {

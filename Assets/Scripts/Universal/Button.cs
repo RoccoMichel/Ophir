@@ -9,6 +9,9 @@ public class Button : Interactable
     {
         base.OnUpdate();
 
+        // Early return if not interactable in this frame
+        if (!interactable || active) return;
+
         if (interactAction.WasPressedThisFrame())
         {
             Interaction();
