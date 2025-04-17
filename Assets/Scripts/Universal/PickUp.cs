@@ -22,52 +22,57 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        int amount = (int)Random.Range(RandomBetween2Constants.x, RandomBetween2Constants.y);
+
+        switch (type)
         {
-            int amount = (int)Random.Range(RandomBetween2Constants.x, RandomBetween2Constants.y);
+            case PickUpTypes.health:
 
-            switch (type)
-            {
-                case PickUpTypes.health:
+                other.GetComponent<BasePlayer>().Heal(amount);
+                break;
 
-                    other.GetComponent<BasePlayer>().Heal(amount);
-                    break;
+            case PickUpTypes.armor:
 
-                case PickUpTypes.armor:
+                other.GetComponent<BasePlayer>().AddArmor(amount);
+                break;
 
-                    other.GetComponent<BasePlayer>().AddArmor(amount);
-                    break;
+            case PickUpTypes.ammoRandom:
 
-                case PickUpTypes.ammoRandom:
+                if (!other.GetComponent<Inventory>().TryRefillRandom(amount)) return;
+                break;
 
-                    if (!other.GetComponent<Inventory>().TryRefillRandom(amount)) return;
-                    break;
+            case PickUpTypes.ammoSpecific:
 
-                case PickUpTypes.ammoSpecific:
+                if (!other.GetComponent<Inventory>().TryRefillSpecific(specifier, amount)) return;
+                break;
 
-                    if (!other.GetComponent<Inventory>().TryRefillSpecific(specifier, amount)) return;
-                    break;
+            case PickUpTypes.ammoAll:
 
-                case PickUpTypes.ammoAll:
+                if (!other.GetComponent<Inventory>().TryRefillAll()) return;
+                break;
 
-                    if (!other.GetComponent<Inventory>().TryRefillAll()) return;
-                    break;
+            case PickUpTypes.addWeapon:
 
-                case PickUpTypes.addWeapon:
+                foreach (var weapon in weapons)
+                    other.GetComponent<Inventory>().AddWeapon(weapon);
+                break;
 
-                    foreach (var weapon in weapons)
-                        other.GetComponent<Inventory>().AddWeapon(weapon);
-                    break;
+            case PickUpTypes.addAndEquipWeapon:
 
-                case PickUpTypes.addAndEquipWeapon:
-
-                    foreach (var weapon in weapons)
-                        other.GetComponent<Inventory>().AddAndEquipWeapon(weapon);
-                    break;
-            }
-
-            Destroy(gameObject);
+                foreach (var weapon in weapons)
+                    other.GetComponent<Inventory>().AddAndEquipWeapon(weapon);
+                break;
         }
+
+        OnPickUp();
+    }
+
+    public void OnPickUp()
+    {
+        // sound & effects
+        Destroy(gameObject);
     }
 
     // warn unknowing dev

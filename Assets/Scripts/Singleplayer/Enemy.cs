@@ -4,9 +4,8 @@ public class Enemy : Entity
 {
     [Header("Enemy Settings")]
     public float damage = 5f;
-    public Transform target;
 
-    public void Attack(Enemy target)
+    public virtual void Attack(Enemy target)
     {
         if (target == null) return;
 
@@ -14,6 +13,7 @@ public class Enemy : Entity
 
         target.GetComponent<Entity>().TakeDamage(damage);
 
+        // Expensive Search?
         try { FindAnyObjectByType<DamageIndicator>().InstantiateIndicator(transform, Color.red); }
         catch { }
     }

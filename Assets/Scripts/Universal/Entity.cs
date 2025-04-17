@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour
         /// <summary>
         /// Made of nothing or should display Nothing
         /// </summary>
-        None,
+        Void,
 
         // Biological entities
         Flesh,     // Raw organic flesh or biological tissue
