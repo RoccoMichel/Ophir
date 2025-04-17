@@ -5,8 +5,6 @@ public class BasePlayer : Entity
     [Header("Player Settings")]
     public float armor = 0;
     public float maxArmor = 100;
-    public Weapon activeWeapon;
-
 
     public override void TakeDamage(float damage)
     {

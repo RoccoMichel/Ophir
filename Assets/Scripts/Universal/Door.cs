@@ -20,9 +20,9 @@ public class Door : Interactable
         base.OnUpdate();
 
         // Early return if not interactable in this frame
-        if ((!interactable || active) && manualOpen) return;
+        if (!interactable || active) return;
 
-        if (interactAction.WasPressedThisFrame())
+        if (interactAction.WasPressedThisFrame() && manualOpen)
         {
             Interaction();
         }

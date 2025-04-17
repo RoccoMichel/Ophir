@@ -9,13 +9,14 @@ public class Interactable : MonoBehaviour
     public bool active;
     public bool interactable;
     public ValidationMethods validation = ValidationMethods.trigger;
+    [Tooltip("Set Raycast distance on the CameraController")]
     public float minDistance = 5f;
 
     // non-inspector variables
     protected Transform player; 
     protected InputAction interactAction;
 
-    public enum ValidationMethods { none, distance, trigger }
+    public enum ValidationMethods { none, distance, trigger, raycast }
 
     private void Start()
     {
@@ -54,6 +55,12 @@ public class Interactable : MonoBehaviour
         consequence.Invoke();
     }
 
+    public virtual void RaycastInteraction()
+    {
+        if (validation != ValidationMethods.raycast || !interactable) return;
+
+        Interaction();
+    }
 
     // Logic if validation methods depends on Trigger:
     private void OnTriggerEnter(Collider other)
@@ -69,6 +76,15 @@ public class Interactable : MonoBehaviour
         if (validation == ValidationMethods.trigger && other.CompareTag("Player"))
         {
             interactable = false;
+        }
+    }
+
+    // Warn unknowing dev
+    private void OnValidate()
+    {
+        if (validation == ValidationMethods.raycast && !gameObject.CompareTag("Interactable"))
+        {
+            Debug.LogWarning("Made sure to set Object tag to 'Interactable' if using raycast validation\nIT IS CURRENTLY NOT SET!");
         }
     }
 }

@@ -21,6 +21,12 @@ public class CameraController : MonoBehaviour
     internal Vector4 activeLimit;        // x: min, max, y: min, max
     [Range(0f, 1f)] public float elasticStrength = 0.3f;
 
+    [Header("Raycast")]
+    public bool raycastEnable = true;
+    public float distance = 10f;
+    public LayerMask layer;
+    protected InputAction interactAction;
+
     [Header("Inputs")]
     [SerializeField] internal Vector2 mouseInput;
     [SerializeField] protected float horizontal, vertical;
@@ -63,6 +69,7 @@ public class CameraController : MonoBehaviour
         RefreshSensitivity();
         if (target == null) target = gameObject;
         lookAction = InputSystem.actions.FindAction("Look");
+        interactAction = InputSystem.actions.FindAction("Interact");
 
         // Apply values to scene
         Cursor.lockState = cursorConstraint;
@@ -75,6 +82,18 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        // Raycast
+        if (raycastEnable && interactAction.WasPressedThisFrame())
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance, layer))
+            {
+                if (hit.transform.CompareTag("Interactable"))
+                    hit.transform.GetComponent<Interactable>().RaycastInteraction();
+
+                // Add more logic for other interaction like an NPC
+            }
+        }
+
         if (!lookAction.IsPressed() && !alwaysUpdate) return;
 
         // Read input
@@ -224,6 +243,12 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ts so ass dawg
+    /// </summary>
+    /// <param name="duration">Shake time in seconds</param>
+    /// <param name="magnitude">Shake strength in world-space-units</param>
+    /// <returns></returns>
     public IEnumerator Shake(float duration, float magnitude)
     {
         Vector3 originalPosition = transform.localPosition;

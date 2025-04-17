@@ -24,7 +24,7 @@ public class SpreadGun : RangedWeapon
         {
             Vector3 spreadDirection = barrel.transform.forward + new Vector3(Random.Range(-spreadAngle, spreadAngle), Random.Range(-spreadAngle, spreadAngle), 0);
 
-            Debug.Log(spreadDirection);
+            // Debug.Log(spreadDirection);
 
             if (pellet != null)
             {

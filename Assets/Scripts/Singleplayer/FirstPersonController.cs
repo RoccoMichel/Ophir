@@ -7,6 +7,7 @@ public class FirstPersonController : MonoBehaviour
     public float moveSpeed;
     public float acceleration = 7f;
     public float deceleration = 10f;
+    public float airFriction = 2.5f;        // NOT IMPLEMENTED
     protected float speed;
     internal Vector2 moveValue;
     [Header("Jumping")]

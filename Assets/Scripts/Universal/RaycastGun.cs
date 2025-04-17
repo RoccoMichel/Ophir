@@ -14,10 +14,10 @@ public class RaycastGun : RangedWeapon
         // bad solution for when barrel has a mesh being rendered
         // should rather calculate this
         barrel.LookAt(playerView.TransformDirection(transform.forward)*distance);
-        if (Physics.Raycast(playerView.position, Vector3.forward, out RaycastHit hit, distance, layerMask))
+        if (Physics.Raycast(playerView.position, transform.forward, out RaycastHit hit, distance, layerMask))
         {
             if (debug)
-                Debug.DrawRay(barrel.position, Vector3.forward, Color.yellow, 0.2f);
+                Debug.DrawRay(barrel.position, transform.forward, Color.yellow, 0.2f);
 
             if (hit.transform.gameObject.GetComponent<Entity>() != null)
                 DoDamage(hit.transform.gameObject.GetComponent<Entity>());

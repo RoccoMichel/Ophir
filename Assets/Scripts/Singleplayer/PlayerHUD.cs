@@ -68,6 +68,7 @@ public class PlayerHUD : MonoBehaviour
 
     public void SetSelector(int index)
     {
+        if (index < 0 || index >= weapons.Count) return;
         if (selector == null || weapons[index] == null) return;
 
         SetSelector(true);
