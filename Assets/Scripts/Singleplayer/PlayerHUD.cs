@@ -24,7 +24,13 @@ public class PlayerHUD : MonoBehaviour
         if (selector != null) SetSelector(false);
 
         if (playerReference == null)
-            playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
+        {
+            try
+            {
+                playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
+            }
+            catch { }
+        }
     }
 
     private void Update()

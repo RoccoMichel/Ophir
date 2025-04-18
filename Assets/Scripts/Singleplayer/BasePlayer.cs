@@ -38,6 +38,22 @@ public class BasePlayer : Entity
         armor = Mathf.Clamp(armor + amount, 0, maxArmor);
     }
 
+    public virtual bool TryAddArmor(int amount)
+    {
+        if (armor >= maxArmor) return false;
+
+        AddArmor(amount);
+        return true;
+    }
+
+    public virtual bool TryHeal(int amount)
+    {
+        if (health >= maxHealth) return false;
+
+        Heal(amount);
+        return true;
+    }
+
     public override void Die()
     {
         // Freeze player or something, anyway don't destroy it

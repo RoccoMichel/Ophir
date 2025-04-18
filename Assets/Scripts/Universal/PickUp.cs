@@ -30,12 +30,12 @@ public class PickUp : MonoBehaviour
         {
             case PickUpTypes.health:
 
-                other.GetComponent<BasePlayer>().Heal(amount);
+                if (!other.GetComponent<BasePlayer>().TryHeal(amount)) return;
                 break;
 
             case PickUpTypes.armor:
 
-                other.GetComponent<BasePlayer>().AddArmor(amount);
+                if (!other.GetComponent<BasePlayer>().TryAddArmor(amount)) return;
                 break;
 
             case PickUpTypes.ammoRandom:
