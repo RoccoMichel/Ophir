@@ -28,6 +28,11 @@ public class Valve : Interactable
         if (progress >= 1) Interaction();
     }
 
+    public override void RaycastInteraction()
+    {
+        // idk how this is going to work gang
+    }
+
     public override void Interaction()
     {
         consequence.Invoke();

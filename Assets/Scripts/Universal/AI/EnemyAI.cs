@@ -197,6 +197,8 @@ public class EnemyAI : MonoBehaviour
                 (Random.Range(-wanderRadius,wanderRadius), 0, Random.Range(wanderRadius, -wanderRadius));
             newDestination = startPosition + randomPos;
         }
+
+        destination = newDestination;
     }
 
     /// <summary>
