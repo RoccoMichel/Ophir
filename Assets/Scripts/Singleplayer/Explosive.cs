@@ -11,6 +11,9 @@ public class Explosive : Entity
     public float force = 10f;
     public float radius = 5f;
     public float burnAt = 50f;
+    public float burnSpeed = 5f;
+    public ParticleSystem burningEffect;
+    public ParticleSystem explosionEffect;
 
     private void Start()
     {
@@ -41,11 +44,16 @@ public class Explosive : Entity
 
     public virtual void Burn()
     {
-        health -= Time.deltaTime;
+        TakeDamage(Time.deltaTime * burnSpeed);
+
+        if (burningEffect != null && !burningEffect.isPlaying)
+            burningEffect.Play();
     }
 
     public override void Explode(float damage, float force, float radius)
     {
+        explosionEffect.Play();
+        Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
         base.Explode(damage, force, radius);
     }
 

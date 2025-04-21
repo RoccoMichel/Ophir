@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
     public bool raycastEnable = true;
     public float distance = 10f;
     public LayerMask layer;
-    protected InputAction interactAction;
+    static internal InputAction interactAction;
 
     [Header("Inputs")]
     [SerializeField] internal Vector2 mouseInput;
@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
     [HideInInspector] public Vector2 rotation;
     [HideInInspector] public Vector2 offset;
     private float xRotation = 0f;
-    protected InputAction lookAction;
+    static internal InputAction lookAction;
 
     public enum MovementType
     {

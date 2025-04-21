@@ -7,22 +7,22 @@ public class Valve : Interactable
     [Tooltip("Lose Progress when not actively turning")]
     public bool retract;
     public float crankSpeed = 1f;
-    private float progress; // between 0 and 1
-
+    public float retractSpeed = 2f;
+    protected float progress; // between 0 and 1
 
     protected override void OnUpdate()
     {
         base.OnUpdate();
-
-        dependents.Invoke(progress); // float does not get taken as argument, rather inspector value
         
         // Early return if not interactable by player in this that frame
         if (!interactable || active) return;
 
-        // Increase progress while interacting
+        // Increase/Decrease progress depending on interacting
         if (interactAction.IsPressed()) progress += crankSpeed * Time.deltaTime;
-        else if (retract && progress > 0) progress -= crankSpeed * Time.deltaTime; // lose progress if enabled
+        else if (retract && progress > 0) progress -= retractSpeed * Time.deltaTime;
         progress = Mathf.Clamp01(progress);
+
+        dependents.Invoke(progress); // BUG: float does not get taken as argument, rather inspector value
 
         // Interaction if done cranking
         if (progress >= 1) Interaction();

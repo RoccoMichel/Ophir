@@ -22,7 +22,7 @@ public class SpreadGun : RangedWeapon
 
         for (int i = 0; i < pelletCount; i++)
         {
-            Vector3 spreadDirection = barrel.transform.forward + new Vector3(Random.Range(-spreadAngle, spreadAngle), Random.Range(-spreadAngle, spreadAngle), 0);
+            Vector3 spreadDirection = barrel.transform.forward + new Vector3(Random.Range(-spreadAngle, spreadAngle), Random.Range(-spreadAngle, spreadAngle), 0); // stupid and wrong
 
             // Debug.Log(spreadDirection);
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
     [Header("Base AI Settings")]
@@ -193,8 +194,7 @@ public class EnemyAI : MonoBehaviour
 
         while (wanderRadius / 2 > Vector3.Distance(newDestination, destination))
         {
-            Vector3 randomPos = new Vector3
-                (Random.Range(-wanderRadius,wanderRadius), 0, Random.Range(wanderRadius, -wanderRadius));
+            Vector3 randomPos = new (Random.Range(-wanderRadius,wanderRadius), 0, Random.Range(wanderRadius, -wanderRadius));
             newDestination = startPosition + randomPos;
         }
 

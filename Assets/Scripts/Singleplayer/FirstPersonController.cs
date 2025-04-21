@@ -11,6 +11,7 @@ public class FirstPersonController : MonoBehaviour
     protected float speed;
     internal Vector2 moveValue;
     [Header("Jumping")]
+    public bool useGravity = true;
     public float jumpStrength;
     public float gravity;
     public bool grounded;
@@ -22,8 +23,8 @@ public class FirstPersonController : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
 
-    internal InputAction moveAction;
-    internal InputAction jumpAction;
+    static internal InputAction moveAction;
+    static internal InputAction jumpAction;
 
     void Start()
     {
@@ -46,9 +47,14 @@ public class FirstPersonController : MonoBehaviour
 
         Vector3 move = moveSpeed * speed * (transform.right * moveValue.x + transform.forward * moveValue.y);
 
-        if (grounded && velocity.y < 0) velocity.y = -2f;
-        velocity.y += gravity * Time.deltaTime;
+        // Falling
+        if (useGravity)
+        {
+            if (grounded && velocity.y < 0) velocity.y = -2f;
+            velocity.y += gravity * Time.deltaTime;
+        }
 
+        // Jumping
         if (jumpAction.IsPressed() && grounded)
         {
             velocity.y = Mathf.Sqrt(jumpStrength * -2 * gravity);

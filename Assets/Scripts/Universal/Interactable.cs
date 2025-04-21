@@ -62,13 +62,18 @@ public class Interactable : MonoBehaviour
         Interaction();
     }
 
-    // Logic if validation methods depends on Trigger:
-    private void OnTriggerEnter(Collider other)
+    protected virtual void TriggerEnter(Collider collider)
     {
-        if (validation == ValidationMethods.trigger && other.CompareTag("Player"))
+        if (validation == ValidationMethods.trigger && collider.CompareTag("Player"))
         {
             interactable = true;
         }
+    }
+
+    // Logic if validation methods depends on Trigger:
+    private void OnTriggerEnter(Collider other)
+    {
+        TriggerEnter(other);
     }
 
     private void OnTriggerExit(Collider other)
