@@ -153,6 +153,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 60
   activeAmmo: 10
   capacityAmmo: 10
@@ -163,7 +165,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!4 &29966076
 Transform:
   m_ObjectHideFlags: 0
@@ -228,6 +229,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 60
   activeAmmo: 10
   capacityAmmo: 10
@@ -238,7 +241,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!1 &460860941
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDisplay: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  crosshair: {fileID: 0}
   playerReference: {fileID: 0}
   gunReference: {fileID: 0}
   group: {fileID: 460860942}
@@ -448,6 +451,7 @@ MonoBehaviour:
   - {fileID: 1031051348}
   - {fileID: 29966074}
   hud: {fileID: 0}
+  handTransform: {fileID: 0}
 --- !u!1 &1031051348
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +486,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 60
   activeAmmo: 10
   capacityAmmo: 10
@@ -492,7 +498,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!4 &1031051350
 Transform:
   m_ObjectHideFlags: 0
@@ -836,6 +841,8 @@ MonoBehaviour:
   damage: 10
   distance: 50
   fovKickback: 0
+  icon: {fileID: 0}
+  crosshair: {fileID: 0}
   rmp: 60
   activeAmmo: 10
   capacityAmmo: 10
@@ -846,7 +853,6 @@ MonoBehaviour:
   reloadAllAtOnce: 1
   reload: 0
   barrel: {fileID: 0}
-  crosshair: {fileID: 0}
 --- !u!4 &1579873550
 Transform:
   m_ObjectHideFlags: 0
