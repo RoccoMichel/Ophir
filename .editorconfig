@@ -1,4 +1,0 @@
-﻿[*.cs]
-
-# UNT0028: Use non-allocating physics APIs
-dotnet_diagnostic.UNT0028.severity = silent

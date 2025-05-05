@@ -13,8 +13,8 @@ public class Enemy : Entity
 
         target.GetComponent<Entity>().TakeDamage(damage);
 
-        // Expensive Search?
-        try { FindAnyObjectByType<DamageIndicator>().InstantiateIndicator(transform, Color.red); }
-        catch { }
+        //// Expensive Search?
+        //try { FindAnyObjectByType<DamageIndicator>().InstantiateIndicator(transform, Color.red); }
+        //catch { }
     }
 }
