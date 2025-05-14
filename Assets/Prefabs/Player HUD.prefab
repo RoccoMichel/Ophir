@@ -418,7 +418,7 @@ MonoBehaviour:
   gunReference: {fileID: 0}
   group: {fileID: 6510114651690119170}
   weapons: []
-  template: {fileID: 611086679779449493, guid: b2ca908caf849ef48b6af5d5355f33dc, type: 3}
+  template: {fileID: 611086679779449493, guid: f3fd4f2e74744dc4b8cef73b9a7c9772, type: 3}
   selector: {fileID: 5784394369304815216}
 --- !u!223 &9082927370128090884
 Canvas:
