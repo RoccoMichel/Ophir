@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject target;
+    public bool active = true;
     [Header("Sensitivity")]
     public float sensitivity = 5f;
     public bool invertX, invertY, sensitivityFromPref = false;
@@ -82,6 +83,8 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (!active) return;
+
         // Raycast
         if (raycastEnable && interactAction.WasPressedThisFrame())
         {

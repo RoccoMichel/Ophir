@@ -6,6 +6,7 @@ public class ColorTransitionOverlay : MonoBehaviour
     public bool destroyWhenFinished = true;
     public bool ignoreTimeScale = false;
     public float transitionTimeSeconds = 1f;
+    public float startDelay;
     public Color startColor = Color.black;
     public Color endColor = Color.white;
     public Image component;
@@ -18,6 +19,11 @@ public class ColorTransitionOverlay : MonoBehaviour
             return;
         }
 
+        Invoke(nameof(Transition), startDelay);
+    }
+
+    public void Transition()
+    {
         component.raycastTarget = true;
         component.canvasRenderer.SetColor(startColor);
         component.CrossFadeColor(endColor, transitionTimeSeconds, ignoreTimeScale, true);
