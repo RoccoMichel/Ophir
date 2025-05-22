@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     public Sprite crosshair;
 
     protected InputAction attackAction;
+    protected CameraController cam;
     protected float timeSinceLastShot = 0f;
 
     private void Start()
@@ -38,6 +39,7 @@ public class Weapon : MonoBehaviour
     public virtual void VariableAssignment()
     {
         attackAction = InputSystem.actions.FindAction("Attack");
+        cam = Camera.main.GetComponent<CameraController>();
     }
 
     public virtual void OnUpdate()

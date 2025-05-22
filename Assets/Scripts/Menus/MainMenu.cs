@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         ToggleAllElements(false);
     }
 

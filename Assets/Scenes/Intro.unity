@@ -553,6 +553,7 @@ MonoBehaviour:
   destroyWhenFinished: 0
   ignoreTimeScale: 0
   transitionTimeSeconds: 4
+  startDelay: 0
   startColor: {r: 0, g: 0, b: 0, a: 1}
   endColor: {r: 1, g: 1, b: 1, a: 0}
   component: {fileID: 258625499}
@@ -811,7 +812,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -902,6 +903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   active: 1
+  fov: 60
+  fovFixSpeed: 4
   sensitivity: 10
   invertX: 0
   invertY: 0

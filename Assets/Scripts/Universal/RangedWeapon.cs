@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +38,10 @@ public class RangedWeapon : Weapon
     /// False means semi-auto, true means fully-auto
     /// </summary>
     public bool automatic = false;
+    /// <summary>
+    /// Determains if the weapon can be shot
+    /// </summary>
+    public bool canFire = true;
 
     // Reload Variables
     /// <summary>
@@ -47,7 +52,13 @@ public class RangedWeapon : Weapon
     public ReloadType reload;
     public Transform barrel;
 
-    // References
+    [Header("Effects")]
+    [SerializeField] protected ParticleSystem[] muzzleFlash;
+    [SerializeField] protected AudioClip shootSound; 
+    [SerializeField] protected AudioClip reloadSound;
+    private Animator animator;
+    private AudioSource audioSource;
+
     protected InputAction reloadAction;
     protected Transform playerView;
 
@@ -74,7 +85,12 @@ public class RangedWeapon : Weapon
     public override void VariableAssignment()
     {
         base.VariableAssignment();
+
+        canFire = true;
         reloadAction = InputSystem.actions.FindAction("Reload");
+        TryGetComponent(out animator);
+        TryGetComponent(out audioSource);
+
         if (barrel == null) barrel = gameObject.transform;
 
         if (playerView == null)
@@ -92,47 +108,102 @@ public class RangedWeapon : Weapon
     {
         base.OnUpdate();
 
-        if (reloadAction.WasPressedThisFrame()) Reload();
+        if (reloadAction.WasPressedThisFrame()) StartCoroutine(Reload());
 
         if (automatic && attackAction.IsPressed() && timeSinceLastShot > 60 / rmp) // Automatic Firing
         {
             if (activeAmmo > 0) Shoot();
-            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) Reload();
+            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) StartCoroutine(Reload());
         }
 
         else if (!automatic && attackAction.WasPressedThisFrame() && timeSinceLastShot > 60 / rmp) // Semi-Auto Firing
         {
             if (activeAmmo > 0) Shoot();
-            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) Reload();
+            else if (activeAmmo <= 0 && reload == ReloadType.FireReload) StartCoroutine(Reload());
         }
     }
 
     public virtual void Shoot()
     {
-        timeSinceLastShot = 0f;
+        if (!canFire) return;
 
+        timeSinceLastShot = 0f;
         activeAmmo--;
-        if (activeAmmo <= 0 && reload == ReloadType.Automatic) Reload();
+        cam.FovKickback(fovKickback);
+
+        foreach (ParticleSystem effect in muzzleFlash) effect.Play();
+        if (animator != null) animator.Play("Fire");
+        if (audioSource != null)
+        {
+            audioSource.clip = shootSound;
+            audioSource.loop = false;
+            audioSource.Play();
+        }
+
+        if (activeAmmo <= 0 && reload == ReloadType.Automatic) StartCoroutine(Reload());
     }
 
-    public virtual void Reload()
+    public virtual IEnumerator Reload()
     {
-        if (activeAmmo >= capacityAmmo) return;
+        if (activeAmmo >= capacityAmmo || carryingAmmo <= 0) yield break;
+        if (!saveAmmo) activeAmmo = 0;
 
+        float timer = 0;
+
+        // Reload Instant
         if (reloadAllAtOnce && saveAmmo)
         {
+            if (animator != null) animator.Play("Reload");
+            if (audioSource != null)
+            {
+                audioSource.clip = reloadSound;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
+
+            while (timer < animator.GetCurrentAnimatorClipInfo(0).Length)
+            {
+                Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+
+                // Reload was cancled
+                if (attackAction.WasPressedThisFrame() && activeAmmo != 0) yield break;
+
+                timer += Time.deltaTime;
+
+                yield return null;
+            }
+
             carryingAmmo += activeAmmo;
             activeAmmo = 0;
-        }
-        else if (reloadAllAtOnce && !saveAmmo)
-            activeAmmo = 0;
 
+        }
+
+        // Reload Induvidually
         while (activeAmmo < capacityAmmo)
         {
-            if (carryingAmmo <= 0) return;
+            if (carryingAmmo <= 0) yield break;
+
+            if (animator != null) animator.Play("Reload");
+            if (audioSource != null)
+            {
+                audioSource.clip = reloadSound;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
+
+            while (timer < animator.GetCurrentAnimatorClipInfo(0).Length)
+            {
+                // Reload was cancled
+                if (attackAction.WasPressedThisFrame() && activeAmmo != 0) yield break;
+
+                timer += Time.deltaTime;
+
+                yield return null;
+            }
 
             activeAmmo++;
             carryingAmmo--;
+            timer = 0;
         }
     }
 

@@ -6,10 +6,14 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject target;
     public bool active = true;
+    public float fov = 80;
+    public float fovFixSpeed = 4;
+
     [Header("Sensitivity")]
     public float sensitivity = 5f;
     public bool invertX, invertY, sensitivityFromPref = false;
     public string prefKey = "Sensitivity";
+    private Camera cam;
 
     [Header("Constraints")]
     public bool alwaysUpdate = false;
@@ -68,6 +72,7 @@ public class CameraController : MonoBehaviour
     {
         // Set values to beyond assembly variables
         RefreshSensitivity();
+        TryGetComponent(out cam);
         if (target == null) target = gameObject;
         lookAction = InputSystem.actions.FindAction("Look");
         interactAction = InputSystem.actions.FindAction("Interact");
@@ -84,6 +89,9 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         if (!active) return;
+
+        // Field of View
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, 4 * Time.deltaTime);
 
         // Raycast
         if (raycastEnable && interactAction.WasPressedThisFrame())
@@ -146,6 +154,11 @@ public class CameraController : MonoBehaviour
     }
 
     // SCRIPT METHODS ---------------------------------
+
+    public void FovKickback(float amount)
+    {
+        cam.fieldOfView += amount;
+    }
 
     /// <summary>
     /// Sets the scripts sensitivity based on CameraController.getFromPref : bool
