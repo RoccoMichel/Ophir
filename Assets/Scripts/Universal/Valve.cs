@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+
 public class Valve : Interactable
 {
     [Header("Valve Settings:")]
     public UnityEvent<float> dependents;
+    
     [Tooltip("Lose Progress when not actively turning")]
     public bool retract;
     public float crankSpeed = 1f;
@@ -31,6 +33,7 @@ public class Valve : Interactable
     public override void RaycastInteraction()
     {
         // idk how this is going to work gang
+        // Valve leak
     }
 
     public override void Interaction()
